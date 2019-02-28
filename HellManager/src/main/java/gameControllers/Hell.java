@@ -26,7 +26,9 @@ public class Hell {
 		
 		return soul;
 	}
-	
+	private void createLevels(){
+		
+	}
 	private Level getLevel() {
 		
 		
