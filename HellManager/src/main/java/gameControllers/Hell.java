@@ -11,12 +11,12 @@ import models.Soul;
 public class Hell {
 	
 	private DifficultyType difficultyType;
-	private int difficultySoulIncomeMultiplier;
+	private static int totalModifier;
 	private HashMap<Integer, Level> levelManager;
-	private int passiveLevelCapModifier;
 	private PowerUp[] powerUpArray = new PowerUp[4];
 	private int currentAmountOfSouls;
 	
+	//dificulty type decleration will be postponed until after GUI is being started
 	public Hell() {
 		
 	}
@@ -44,11 +44,6 @@ public class Hell {
 			levelManager.put(levelNumber,l);
 		}
 	}
-	private Level getLevel() {
-		
-		
-		return new Level(0,0,0,0);
-	}
 	
 	private boolean levelCapacityManager(int levelNumber) {
 		boolean maxMet = false
@@ -74,10 +69,18 @@ public class Hell {
 		return maxCapacity.toString();
 	}
 	
-	private int maxCapModifier(Level levelFilled) {
-		
-		
-		return 0;
+	private void maxCapModifier() {
+		boolean isFilled;
+		int passiveMod;
+		Level l = null;
+		for(int i = 0; i < 7; i++){
+			isFilled = levelCapacityManager((i+1));
+			if(isFilled){
+				l = levelManager.get(i+1);
+				passiveMod  +=  l.getMaxSoulCapModifer();
+				setTotalModifier(passiveMod);
+			}
+		}
 	}
 	
 	private void powerUpManager() {
@@ -149,5 +152,13 @@ public class Hell {
 	public int getCurrentAmountOfSouls(){
 		return currentAmountOfSouls();
 	}
+	public int getTotalModifier(){
+		return totalModifer;
+	}
+	public void setTotalModifier(int totalModifier){
+		this.totalModifier = totalModifier;
+	}
+	
+	
 	
 }
