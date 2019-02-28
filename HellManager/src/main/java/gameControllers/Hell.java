@@ -50,8 +50,14 @@ public class Hell {
 		return new Level(0,0,0,0);
 	}
 	
-	private boolean levelCapacityManager() {
-		
+	private boolean levelCapacityManager(int levelNumber) {
+		boolean maxMet = false
+		Level l = levelManager.get(levelNumber);
+		if(l.getCurrentSoulAmount() >= l.getMaxSoulCap){
+			l.setCurrentSoulAmount = l.getMaxSoulCap;
+			maxMet = true;
+		}
+		return maxMet;
 	}
 	
 	private void displayerLevelMaxCapacity() {
