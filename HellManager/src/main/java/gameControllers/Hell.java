@@ -60,14 +60,18 @@ public class Hell {
 		return maxMet;
 	}
 	
-	private void displayLevelMaxCapacity(int levelNumber) {
-		String maxCapacity;
+	private String displayLevelMaxCapacity(int levelNumber) {
+		StringBuiler maxCapacity = new StringBuilder();
 		Level l = levelManager.get(levelNumber);
-		maxCapacity = l.getMaxSoulCap().toString();
+		maxCapacity.append(l.getMaxSoulCap());
+		return maxCapacity.toString();
 	}
 	
-	private void displayLevelCurrentCapacity() {
-		
+	private String displayLevelCurrentCapacity() {
+		StringBuiler maxCapacity = new StringBuilder();
+		Level l = levelManager.get(levelNumber);
+		maxCapacity.append(l.getCurrentSoulAmount());
+		return maxCapacity.toString();
 	}
 	
 	private int maxCapModifier(Level levelFilled) {
