@@ -15,6 +15,7 @@ public class Heaven {
 	private HashMap<Integer, Level> levelManager;
 	private int passiveLevelCapModifier;
 	private PowerUp[] powerUpArray = new PowerUp[4];
+	private int currentAmountOfSouls;
 	
 	public Heaven() {
 		
@@ -114,5 +115,10 @@ public class Heaven {
 	public void setPowerUpArray(PowerUp[] powerUpArray) {
 		this.powerUpArray = powerUpArray;
 	}
-	
+	public void setCurrentAmountOfSouls(int currentAmountOfSouls){
+		this.currentAmountOfSouls = currentAmountOfSouls;
+	}
+	public int getCurrentAmountOfSouls(){
+		return currentAmountOfSouls();
+	}
 }
