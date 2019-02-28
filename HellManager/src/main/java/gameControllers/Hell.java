@@ -15,6 +15,7 @@ public class Hell {
 	private HashMap<Integer, Level> levelManager;
 	private int passiveLevelCapModifier;
 	private PowerUp[] powerUpArray = new PowerUp[4];
+	private int currentAmountOfSouls;
 	
 	public Hell() {
 		
@@ -27,7 +28,21 @@ public class Hell {
 		return soul;
 	}
 	private void createLevels(){
+		int levelNum;
+		int maxSoulCap;
+		int currentSoulAmount = getCurrentSoulAmount();
 		
+		for(int i =0; i < 7; i++){
+			levelNum = i + 1;
+			if(levelNum == 1){
+				maxSoulCap = 10,000;(arbitrary)
+			}else{
+				int temp = maxSoulCap * .20;
+				maxSoulCap += temp;
+			}
+			Level l = new Level(levelNumber, maxSoulCap, currentSoulAmount);
+			levelManager.put(levelNumber,l);
+		}
 	}
 	private Level getLevel() {
 		
@@ -35,7 +50,7 @@ public class Hell {
 		return new Level(0,0,0,0);
 	}
 	
-	private void levelCapacityManager() {
+	private boolean levelCapacityManager() {
 		
 	}
 	
@@ -115,6 +130,12 @@ public class Hell {
 
 	public void setPowerUpArray(PowerUp[] powerUpArray) {
 		this.powerUpArray = powerUpArray;
+	}
+	public void setCurrentAmountOfSouls(int currentAmountOfSouls){
+		this.currentAmountOfSouls = currentAmountOfSouls;
+	}
+	public int getCurrentAmountOfSouls(){
+		return currentAmountOfSouls();
 	}
 	
 }
