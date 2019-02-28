@@ -7,11 +7,11 @@ public class Level {
 	private boolean isFilled;
 	private int maxSoulCapModifier;
 	
-	public Level(int levelNumber, int maxSoulCap, int currentSoulAmount, int maxSoulCapModifier) {
+	public Level(int levelNumber, int maxSoulCap, int currentSoulAmount) {
 		setLevelNumber(levelNumber);
 		setMaxSoulCap(maxSoulCap);
 		setCurrentSoulAmount(currentSoulAmount);
-		setMaxSoulCapModifier(maxSoulCapModifier);
+		
 	}
 
 	public int getLevelNumber() {
