@@ -3,10 +3,8 @@ package gameControllers;
 import java.util.HashMap;
 
 import enums.DifficultyType;
-import enums.SoulType;
 import models.Level;
 import models.PowerUp;
-import models.Soul;
 
 public class Hell {
 	
@@ -80,7 +78,7 @@ public class Hell {
 	}
 	
 	private void createPowerUps() {
-		int baseSoulFee;
+		int baseSoulFee = 0;
 		int soulFee;
 		int powerUpTier;
 		
@@ -92,7 +90,7 @@ public class Hell {
 			PowerUp pu = new PowerUp(baseSoulFee, powerUpTier);
 			powerUpArray[i] = pu;
 		}else{
-			int temp = baseSoulFee * .5;
+			int temp = baseSoulFee * i+1;
 			soulFee = baseSoulFee + temp;
 			PowerUp pu = new PowerUp(soulFee, powerUpTier);
 			powerUpArray[i] = pu;
@@ -100,19 +98,9 @@ public class Hell {
 		}
 	}
 	
-	private void tierOnePowerUps() {
+	private void powerUpUpgrader() {
 		
-	}
-	
-	private void tierTwoPowerUps() {
 		
-	}
-	
-	private void tierThreePowerUps() {
-		
-	}
-	
-	private void tierFourPowerUps() {
 		
 	}
 	
