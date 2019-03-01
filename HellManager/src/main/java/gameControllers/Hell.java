@@ -21,12 +21,6 @@ public class Hell {
 		
 	}
 	
-	private Soul createSoul() {
-		SoulType soulType = SoulType.REPENTANCE;
-		Soul soul = new Soul(soulType);
-		
-		return soul;
-	}
 	private void createLevels(){
 		int levelNum;
 		int maxSoulCap;
@@ -88,7 +82,24 @@ public class Hell {
 	}
 	
 	private void createPowerUps() {
+		int baseSoulFee;
+		int soulFee;
+		int powerUpTier;
 		
+		
+		for(int i = 0; i < 4; i++){
+			powerUpTier = i +1;
+		if(i == 0){
+			baseSoulFee = 2500;
+			PowerUp pu = new PowerUp(baseSoulFee, powerUpTier);
+			powerUpArray[i] = pu;
+		}else{
+			int temp = baseSoulFee * .5;
+			soulFee = baseSoulFee + temp;
+			PowerUp pu = new PowerUp(soulFee, powerUpTier);
+			powerUpArray[i] = pu;
+			}
+		}
 	}
 	
 	private void tierOnePowerUps() {
