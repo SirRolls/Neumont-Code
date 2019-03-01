@@ -3,10 +3,8 @@ package gameControllers;
 import java.util.HashMap;
 
 import enums.DifficultyType;
-import enums.SoulType;
 import models.Level;
 import models.PowerUp;
-import models.Soul;
 
 public class Heaven {
 	
@@ -19,13 +17,6 @@ public class Heaven {
 	
 	public Heaven() {
 		
-	}
-	
-	private Soul createSoul() {
-		SoulType soulType = SoulType.REPENTANCE;
-		Soul soul = new Soul(soulType);
-		
-		return soul;
 	}
 	
 	private Level getLevel() {
