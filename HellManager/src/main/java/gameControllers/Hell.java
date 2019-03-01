@@ -96,6 +96,7 @@ public class Hell {
 	}
 
 	private void powerUpManager() {
+		PowerUp pu = null;
 		int tierOneCounter;
 		int tierTwoCounter;
 		int tierThreeCounter;
@@ -107,16 +108,24 @@ public class Hell {
 		tierFourCounter = 0;
 
 		if (tierOneCounter < 4) {
-
+			pu = powerUpArray[0];
+			powerUpUpgrader(pu);
+			pu = null;
 		}
 		if (tierTwoCounter < 4) {
-
+			pu = powerUpArray[1];
+			powerUpUpgrader(pu);
+			pu = null;
 		}
 		if (tierThreeCounter < 4) {
-
+			pu = powerUpArray[2];
+			powerUpUpgrader(pu);
+			pu = null;
 		}
 		if (tierFourCounter < 4) {
-
+			pu = powerUpArray[3];
+			powerUpUpgrader(pu);
+			pu = null;
 		}
 
 	}
