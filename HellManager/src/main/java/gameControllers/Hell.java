@@ -87,7 +87,7 @@ public class Hell {
 				powerUpArray[i] = pu;
 			} else {
 
-				int temp = baseSoulFee * i + 1;
+				int temp = baseSoulFee * i+1;
 				soulFee = baseSoulFee + temp;
 				PowerUp pu = new PowerUp(soulFee, powerUpTier);
 				powerUpArray[i] = pu;
@@ -121,8 +121,11 @@ public class Hell {
 
 	}
 
-	private void powerUpUpgrader() {
-
+	
+	private void powerUpUpgrader(PowerUp powerUp) {
+		
+		powerUp.setSoulFee((int)Math.round(powerUp.getSoulFee() * .5));
+		
 	}
 
 	private void modifierModifier(int modifier) {
