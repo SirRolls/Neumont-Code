@@ -73,10 +73,6 @@ public class Hell {
 		}
 	}
 	
-	private void powerUpManager() {
-		
-	}
-	
 	private void createPowerUps() {
 		int baseSoulFee = 0;
 		int soulFee;
@@ -90,6 +86,7 @@ public class Hell {
 			PowerUp pu = new PowerUp(baseSoulFee, powerUpTier);
 			powerUpArray[i] = pu;
 		}else{
+
 			int temp = baseSoulFee * i+1;
 			soulFee = baseSoulFee + temp;
 			PowerUp pu = new PowerUp(soulFee, powerUpTier);
@@ -97,6 +94,15 @@ public class Hell {
 			}
 		}
 	}
+	private void powerUpManager() {
+		int tierOneCounter;
+		int tierTwoCounter;
+		int tierThreeCounter;
+		int tierFourCounter;
+		
+		
+	}
+	
 	
 	private void powerUpUpgrader() {
 		
