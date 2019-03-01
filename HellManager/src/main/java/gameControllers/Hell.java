@@ -80,7 +80,7 @@ public class Hell {
 	}
 	
 	private void createPowerUps() {
-		int baseSoulFee;
+		int baseSoulFee = 0;
 		int soulFee;
 		int powerUpTier;
 		
@@ -92,8 +92,8 @@ public class Hell {
 			PowerUp pu = new PowerUp(baseSoulFee, powerUpTier);
 			powerUpArray[i] = pu;
 		}else{
-			int temp = baseSoulFee * .5;
-			soulFee = baseSoulFee + temp;
+			double temp = baseSoulFee * .5;
+			soulFee = (int) (baseSoulFee + temp);
 			PowerUp pu = new PowerUp(soulFee, powerUpTier);
 			powerUpArray[i] = pu;
 			}
