@@ -111,6 +111,8 @@ public class Hell {
 			pu = powerUpArray[0];
 			powerUpUpgrader(pu);
 			pu = null;
+		}else {
+			//make unavailable
 		}
 		if (tierTwoCounter < 4) {
 			pu = powerUpArray[1];
