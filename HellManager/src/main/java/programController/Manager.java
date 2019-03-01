@@ -12,21 +12,31 @@ public class Manager {
 	
 	public static void initiateHM() {
 		
+		
+		
 	}
 	
 	private static void multiplayerSelection() {
+		
+		
 		
 	}
 	
 	private static void singlePlayer() {
 		
+		
+		
 	}
 	
 	private static void multiPlayer() {
 		
+		
+		
 	}
 	
 	private static Hell createHell() {
+		
+		
 		
 		return new Hell();
 	}
