@@ -3,14 +3,13 @@ package models;
 public class PowerUp {
 	private int soulFee;
 	private int powerUpTier;
-	private final int POWERUPMODIFIER;
+	private static final int POWERUPMODIFIER = 7;
 	
 	
-	public PowerUp(int POWERUPMODIFIER, int soulFee, int powerUpTier) {
+	public PowerUp(int soulFee, int powerUpTier) {
 		
 		setSoulFee(soulFee);
 		setPowerUpTier(powerUpTier);
-		this.POWERUPMODIFIER = POWERUPMODIFIER;
 	
 	}
 

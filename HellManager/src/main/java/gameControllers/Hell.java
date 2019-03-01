@@ -11,74 +11,74 @@ import models.Soul;
 public class Hell {
 	
 	private DifficultyType difficultyType;
-	private static int totalModifier;
+	private int difficultySoulIncomeMultiplier;
 	private HashMap<Integer, Level> levelManager;
 	private PowerUp[] powerUpArray = new PowerUp[4];
+	private static int totalSoulModifier;
 	private int currentAmountOfSouls;
 	
-	//dificulty type decleration will be postponed until after GUI is being started
 	public Hell() {
 		
 	}
 	
 	private Soul createSoul() {
-		SoulType soulType = SoulType.REPENTANCE;
+		SoulType soulType = SoulType.SIN;
 		Soul soul = new Soul(soulType);
 		
 		return soul;
 	}
+	
 	private void createLevels(){
-		int levelNum;
-		int maxSoulCap;
-		int currentSoulAmount = getCurrentSoulAmount();
+		
+		int levelNumber;
+		int maxSoulCap = 10000;
+		int currentSoulAmount = getCurrentAmountOfSouls();
 		
 		for(int i =0; i < 7; i++){
-			levelNum = i + 1;
-			if(levelNum == 1){
-				maxSoulCap = 10,000;(arbitrary)
-			}else{
-				int temp = maxSoulCap * .20;
-				maxSoulCap += temp;
-			}
+			levelNumber = i + 1;
 			Level l = new Level(levelNumber, maxSoulCap, currentSoulAmount);
 			levelManager.put(levelNumber,l);
 		}
 	}
 	
 	private boolean levelCapacityManager(int levelNumber) {
-		boolean maxMet = false
+		boolean maxMet = false;
 		Level l = levelManager.get(levelNumber);
 		if(l.getCurrentSoulAmount() >= l.getMaxSoulCap()){
-			l.setCurrentSoulAmount() = l.getMaxSoulCap();
+			l.setCurrentSoulAmount(l.getMaxSoulCap());
 			maxMet = true;
 		}
 		return maxMet;
 	}
 	
-	private String displayLevelMaxCapacity(int levelNumber) {
-		StringBuiler maxCapacity = new StringBuilder();
+	private String displayerLevelMaxCapacity(int levelNumber) {
+		StringBuilder maxCapacity = new StringBuilder();
 		Level l = levelManager.get(levelNumber);
 		maxCapacity.append(l.getMaxSoulCap());
+		
 		return maxCapacity.toString();
 	}
 	
-	private String displayLevelCurrentCapacity() {
-		StringBuiler maxCapacity = new StringBuilder();
+	private String displayLevelCurrentCapacity(int levelNumber) {
+		
+		StringBuilder currentCapacity = new StringBuilder();
 		Level l = levelManager.get(levelNumber);
-		maxCapacity.append(l.getCurrentSoulAmount());
-		return maxCapacity.toString();
+		currentCapacity.append(l.getCurrentSoulAmount());
+		
+		return currentCapacity.toString();
+		
 	}
 	
 	private void maxCapModifier() {
 		boolean isFilled;
-		int passiveMod;
+		int passiveMod = 0;
 		Level l = null;
 		for(int i = 0; i < 7; i++){
 			isFilled = levelCapacityManager((i+1));
 			if(isFilled){
 				l = levelManager.get(i+1);
-				passiveMod  +=  l.getMaxSoulCapModifer();
-				setTotalModifier(passiveMod);
+				passiveMod  +=  l.getMaxSoulCapModifier();
+				modifierModifier(passiveMod);
 			}
 		}
 	}
@@ -106,6 +106,12 @@ public class Hell {
 	private void tierFourPowerUps() {
 		
 	}
+	
+	private void modifierModifier(int modifier) {
+		
+		totalSoulModifier += modifier;
+		
+	}
 
 	public DifficultyType getDifficultyType() {
 		return difficultyType;
@@ -131,14 +137,6 @@ public class Hell {
 		this.levelManager = levelManager;
 	}
 
-	public int getPassiveLevelCapModifier() {
-		return passiveLevelCapModifier;
-	}
-
-	public void setPassiveLevelCapModifier(int passiveLevelCapModifier) {
-		this.passiveLevelCapModifier = passiveLevelCapModifier;
-	}
-
 	public PowerUp[] getPowerUpArray() {
 		return powerUpArray;
 	}
@@ -146,19 +144,22 @@ public class Hell {
 	public void setPowerUpArray(PowerUp[] powerUpArray) {
 		this.powerUpArray = powerUpArray;
 	}
-	public void setCurrentAmountOfSouls(int currentAmountOfSouls){
+
+	public int getTotalSoulModifier() {
+		return totalSoulModifier;
+	}
+
+	public int getCurrentAmountOfSouls() {
+		return currentAmountOfSouls;
+	}
+
+	public void setCurrentAmountOfSouls(int currentAmountOfSouls) {
 		this.currentAmountOfSouls = currentAmountOfSouls;
 	}
-	public int getCurrentAmountOfSouls(){
-		return currentAmountOfSouls();
+
+	public static void setTotalSoulModifier(int totalSoulModifier) {
+		Hell.totalSoulModifier = totalSoulModifier;
 	}
-	public int getTotalModifier(){
-		return totalModifer;
-	}
-	public void setTotalModifier(int totalModifier){
-		this.totalModifier = totalModifier;
-	}
-	
-	
+
 	
 }
