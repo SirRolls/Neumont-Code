@@ -112,6 +112,7 @@ public class Hell {
 		if (tierOneCounter < 4) {
 			pu = powerUpArray[0];
 			powerUpUpgrader(pu);
+			System.out.println(pu.getPowerupmodifier());
 			pu = null;
 		}else {
 			//make unavailable
@@ -119,16 +120,19 @@ public class Hell {
 		if (tierTwoCounter < 4) {
 			pu = powerUpArray[1];
 			powerUpUpgrader(pu);
+			System.out.println(pu.getPowerupmodifier());
 			pu = null;
 		}
 		if (tierThreeCounter < 4) {
 			pu = powerUpArray[2];
 			powerUpUpgrader(pu);
+			System.out.println(pu.getPowerupmodifier());
 			pu = null;
 		}
 		if (tierFourCounter < 4) {
 			pu = powerUpArray[3];
 			powerUpUpgrader(pu);
+			System.out.println(pu.getPowerupmodifier());
 			pu = null;
 		}
 
