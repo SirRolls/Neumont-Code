@@ -8,16 +8,15 @@ import models.PowerUp;
 
 public class Hell {
 
-	private DifficultyType difficultyType;
-	private int difficultySoulIncomeMultiplier;
 	private HashMap<Integer, Level> levelManager;
 	private PowerUp[] powerUpArray = new PowerUp[4];
 	private static int totalSoulModifier;
 	private int currentAmountOfSouls;
 
-	public Hell() {
+	public Hell(int difficultySoulIncomeMultiplier) {
 		createLevels();
 		createPowerUps();
+		modifierModifier(difficultySoulIncomeMultiplier);
 	}
 	
 
@@ -149,22 +148,6 @@ public class Hell {
 
 		totalSoulModifier += modifier;
 
-	}
-
-	public DifficultyType getDifficultyType() {
-		return difficultyType;
-	}
-
-	public void setDifficultyType(DifficultyType difficultyType) {
-		this.difficultyType = difficultyType;
-	}
-
-	public int getDifficultySoulIncomeMultiplier() {
-		return difficultySoulIncomeMultiplier;
-	}
-
-	public void setDifficultySoulIncomeMultiplier(int difficultySoulIncomeMultiplier) {
-		this.difficultySoulIncomeMultiplier = difficultySoulIncomeMultiplier;
 	}
 
 	public HashMap<Integer, Level> getLevelManager() {
