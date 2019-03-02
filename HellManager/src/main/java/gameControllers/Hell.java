@@ -2,7 +2,6 @@ package gameControllers;
 
 import java.util.HashMap;
 
-import enums.DifficultyType;
 import models.Level;
 import models.PowerUp;
 
@@ -18,7 +17,6 @@ public class Hell {
 		createPowerUps();
 		modifierModifier(difficultySoulIncomeMultiplier);
 	}
-	
 
 	private void createLevels() {
 
@@ -143,7 +141,6 @@ public class Hell {
 
 	}
 
-	
 	private void powerUpUpgrader(PowerUp powerUp) {
 		
 		powerUp.setSoulFee((int)Math.round(powerUp.getSoulFee() * .5));

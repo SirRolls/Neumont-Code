@@ -38,7 +38,7 @@ public class Manager {
 		
 		
 		
-		return new Hell();
+		return new Hell(1);
 	}
 
 }
