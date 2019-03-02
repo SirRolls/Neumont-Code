@@ -98,6 +98,7 @@ public class Hell {
 
 	private void powerUpManager() {
 		PowerUp pu = null;
+		int powerUpSelected = 0;
 		int tierOneCounter;
 		int tierTwoCounter;
 		int tierThreeCounter;
@@ -108,7 +109,8 @@ public class Hell {
 		tierThreeCounter = 0;
 		tierFourCounter = 0;
 
-		if (tierOneCounter < 4) {
+		if (tierOneCounter < 4 && powerUpSelected == 1) {
+			tierOneCounter++;
 			pu = powerUpArray[0];
 			powerUpUpgrader(pu);
 			System.out.println(pu.getPowerupmodifier());
@@ -116,19 +118,22 @@ public class Hell {
 		}else {
 			//make unavailable
 		}
-		if (tierTwoCounter < 4) {
+		if (tierTwoCounter < 4 && powerUpSelected == 2) {
+			tierTwoCounter++;
 			pu = powerUpArray[1];
 			powerUpUpgrader(pu);
 			System.out.println(pu.getPowerupmodifier());
 			pu = null;
 		}
-		if (tierThreeCounter < 4) {
+		if (tierThreeCounter < 4 && powerUpSelected == 3) {
+			tierThreeCounter++;
 			pu = powerUpArray[2];
 			powerUpUpgrader(pu);
 			System.out.println(pu.getPowerupmodifier());
 			pu = null;
 		}
-		if (tierFourCounter < 4) {
+		if (tierFourCounter < 4 && powerUpSelected == 4) {
+			tierFourCounter++;
 			pu = powerUpArray[3];
 			powerUpUpgrader(pu);
 			System.out.println(pu.getPowerupmodifier());
