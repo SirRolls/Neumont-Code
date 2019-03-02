@@ -16,8 +16,10 @@ public class Hell {
 	private int currentAmountOfSouls;
 
 	public Hell() {
-
+		createLevels();
+		createPowerUps();
 	}
+	
 
 	private void createLevels() {
 
