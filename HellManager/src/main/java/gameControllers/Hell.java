@@ -37,6 +37,7 @@ public class Hell {
 		boolean maxMet = false;
 		Level l = levelManager.get(levelNumber);
 		if (l.getCurrentSoulAmount() >= l.getMaxSoulCap()) {
+			setCurrentAmountOfSouls(getCurrentAmountOfSouls() + (l.getCurrentSoulAmount() - l.getMaxSoulCap())); 
 			l.setCurrentSoulAmount(l.getMaxSoulCap());
 			maxMet = true;
 		}
