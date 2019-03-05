@@ -1,6 +1,8 @@
 package gameControllers;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Set;
 
 import enums.DifficultyType;
 import models.Level;
@@ -186,5 +188,31 @@ public class Hell {
 	public static void setTotalSoulModifier(int totalSoulModifier) {
 		Hell.totalSoulModifier = totalSoulModifier;
 	}
+
+	private String appendLevelData() {
+		StringBuilder sb = new StringBuilder();
+		Level l = null;
+		Set levelKeys;
+		
+		for(int i = 0; i < levelManager.size(); i++) {
+			 levelKeys = levelManager.keySet();
+			if(levelKeys.contains(i)) {
+				l = levelManager.get(i);
+			}
+		}
+		
+		return sb.toString();
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Hell [levelManager=").append(levelManager).append(", powerUpArray=")
+				.append(Arrays.toString(powerUpArray)).append(", currentAmountOfSouls=").append(currentAmountOfSouls)
+				.append("]");
+		return builder.toString();
+	}
+	
+	
 
 }

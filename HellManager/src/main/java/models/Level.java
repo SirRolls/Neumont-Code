@@ -13,6 +13,7 @@ public class Level {
 		if(levelNumber > 1) {
 			for(int i = 0; i < levelNumber; i++) {
 				maxSoulCap *= .2;
+				
 			}
 		}
 		this.maxSoulCap = maxSoulCap;
@@ -53,6 +54,16 @@ public class Level {
 	public void setMaxSoulCapModifier(int maxSoulCapModifier) {
 		this.maxSoulCapModifier = maxSoulCapModifier;
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Level Number:").append(getLevelNumber()+"\n").append("Max Soul Cap =").append(getMaxSoulCap()+"\n")
+				.append("Current Soul Amount:").append(getCurrentSoulAmount()+"\n")
+				.append("Max Soul Cap Modifier:").append(getMaxSoulCapModifier()).append("\n");
+		return builder.toString();
+	}
+	
 	
 	
 }

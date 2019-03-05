@@ -11,8 +11,13 @@ public class Manager {
 	private Heaven multiPlayerHeaven;
 	
 	public static void initiateHM() {
+		int difficulty;
+		String [] options = {"Easy","Medium","Hard"};
+		System.out.println("Please select a difficulty.");
+		difficulty = lib.Library.promptForMenuSelection(options, false);
+		Hell h = new Hell(difficulty);
 		
-		
+		System.out.println(h.toString());
 		
 	}
 	
@@ -34,11 +39,5 @@ public class Manager {
 		
 	}
 	
-	private static Hell createHell() {
-		
-		
-		
-		return new Hell();
-	}
 
 }
