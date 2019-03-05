@@ -196,7 +196,7 @@ public class Hell {
 			 levelKeys = levelManager.keySet();
 			if(levelKeys.contains(i)) {
 				l = levelManager.get(i);
-				sb.append(l.toString());
+				sb.append(l.toString()).append("\r");
 			}
 		}
 		
@@ -209,7 +209,7 @@ public class Hell {
 		
 		for(int i = 0; i < 4; i++) {
 			pu = powerUpArray[i];
-			sb.append(pu.toString());
+			sb.append(pu.toString()).append("\r");
 		}
 		
 		return sb.toString();
@@ -218,8 +218,8 @@ public class Hell {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Difficulty: ").append("arbtriary")
-		.append("Passive modifier: ").append(getTotalSoulModifier())
+		builder.append("Difficulty: ").append("arbtriary\r")
+		.append("Passive modifier: ").append(getTotalSoulModifier()).append("\r")
 		.append(appendPowerUpData()).append(appendLevelData());
 		return builder.toString();
 	}
