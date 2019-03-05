@@ -28,7 +28,7 @@ public class Hell {
 		int maxSoulCap = 10000;
 		int currentSoulAmount = getCurrentAmountOfSouls();
 
-		for (int i = 0; i < 7; i++) {
+		for (int i = 0; i < 8; i++) {
 			levelNumber = i + 1;
 			Level l = new Level(levelNumber, maxSoulCap, currentSoulAmount);
 			levelManager.put(levelNumber, l);
