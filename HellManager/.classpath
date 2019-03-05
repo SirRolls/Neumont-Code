@@ -31,5 +31,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="lib.jar"/>
+	<classpathentry kind="lib" path="CrawfordS_ConsoleIOLibrary.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

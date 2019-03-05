@@ -12,7 +12,7 @@ public class Level {
 		setCurrentSoulAmount(currentSoulAmount);
 		if(levelNumber > 1) {
 			for(int i = 0; i < levelNumber; i++) {
-				maxSoulCap *= .2;
+				maxSoulCap *= 1.2;
 				
 			}
 		}

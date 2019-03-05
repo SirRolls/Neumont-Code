@@ -2,6 +2,7 @@ package programController;
 
 import gameControllers.Heaven;
 import gameControllers.Hell;
+import lib.ConsoleIO;
 
 public class Manager {
 	
@@ -13,8 +14,7 @@ public class Manager {
 	public static void initiateHM() {
 		int difficulty;
 		String [] options = {"Easy","Medium","Hard"};
-		System.out.println("Please select a difficulty.");
-		difficulty = lib.Library.promptForMenuSelection(options, false);
+		difficulty = ConsoleIO.promptForMenuSelection("Please select a difficulty: ", options, false);
 		Hell h = new Hell(difficulty);
 		
 		System.out.println(h.toString());
