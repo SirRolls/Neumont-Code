@@ -196,6 +196,7 @@ public class Hell {
 			 levelKeys = levelManager.keySet();
 			if(levelKeys.contains(i)) {
 				l = levelManager.get(i);
+				sb.append(l.toString());
 			}
 		}
 		
@@ -205,7 +206,7 @@ public class Hell {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Hell [levelManager=").append(levelManager).append(", powerUpArray=")
+		builder.append("Difficulty: ").append("arbtriary").append(", powerUpArray=")
 				.append(Arrays.toString(powerUpArray)).append(", currentAmountOfSouls=").append(currentAmountOfSouls)
 				.append("]");
 		return builder.toString();
