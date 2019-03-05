@@ -28,7 +28,7 @@ public class Hell {
 		int maxSoulCap = 10000;
 		int currentSoulAmount = getCurrentAmountOfSouls();
 
-		for (int i = 0; i < 8; i++) {
+		for (int i = 0; i < 7; i++) {
 			levelNumber = i + 1;
 			Level l = new Level(levelNumber, maxSoulCap, currentSoulAmount);
 			levelManager.put(levelNumber, l);
@@ -195,12 +195,8 @@ public class Hell {
 		Set levelKeys;
 		
 		for(int i = 0; i < levelManager.size(); i++) {
-			 levelKeys = levelManager.keySet();
-			if(levelKeys.contains(i)) {
-				l = levelManager.get(i);
+				l = levelManager.get(i + 1);
 				sb.append(l.toString()).append("\r");
-
-			}
 		}
 		
 		return sb.toString();
