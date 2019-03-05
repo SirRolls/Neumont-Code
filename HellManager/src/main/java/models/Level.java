@@ -58,7 +58,8 @@ public class Level {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Level Number:").append(getLevelNumber()+"\n").append("Max Soul Cap =").append(getMaxSoulCap()+"\n")
+		builder.append("Level Number:").append(getLevelNumber()+"\n")
+		.append("Max Soul Cap =").append(getMaxSoulCap()+"\n")
 				.append("Current Soul Amount:").append(getCurrentSoulAmount()+"\n")
 				.append("Max Soul Cap Modifier:").append(getMaxSoulCapModifier()).append("\n");
 		return builder.toString();

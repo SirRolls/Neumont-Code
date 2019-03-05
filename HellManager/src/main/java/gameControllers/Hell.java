@@ -17,6 +17,8 @@ public class Hell {
 	public Hell(int difficultySoulIncomeMultiplier) {
 		createLevels();
 		createPowerUps();
+		appendLevelData();
+		appendPowerUpData();
 		modifierModifier(difficultySoulIncomeMultiplier);
 	}
 
@@ -197,6 +199,7 @@ public class Hell {
 			if(levelKeys.contains(i)) {
 				l = levelManager.get(i);
 				sb.append(l.toString()).append("\r");
+
 			}
 		}
 		
@@ -210,6 +213,7 @@ public class Hell {
 		for(int i = 0; i < 4; i++) {
 			pu = powerUpArray[i];
 			sb.append(pu.toString()).append("\r");
+
 		}
 		
 		return sb.toString();
