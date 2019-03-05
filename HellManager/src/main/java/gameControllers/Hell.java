@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Set;
 
-import enums.DifficultyType;
 import models.Level;
 import models.PowerUp;
 
@@ -20,7 +19,6 @@ public class Hell {
 		createPowerUps();
 		modifierModifier(difficultySoulIncomeMultiplier);
 	}
-	
 
 	private void createLevels() {
 
@@ -39,6 +37,7 @@ public class Hell {
 		boolean maxMet = false;
 		Level l = levelManager.get(levelNumber);
 		if (l.getCurrentSoulAmount() >= l.getMaxSoulCap()) {
+			setCurrentAmountOfSouls(getCurrentAmountOfSouls() + (l.getCurrentSoulAmount() - l.getMaxSoulCap())); 
 			l.setCurrentSoulAmount(l.getMaxSoulCap());
 			maxMet = true;
 		}
@@ -144,7 +143,6 @@ public class Hell {
 
 	}
 
-	
 	private void powerUpUpgrader(PowerUp powerUp) {
 		
 		powerUp.setSoulFee((int)Math.round(powerUp.getSoulFee() * .5));
