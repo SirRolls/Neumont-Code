@@ -202,13 +202,25 @@ public class Hell {
 		
 		return sb.toString();
 	}
+	
+	private String appendPowerUpData() {
+		StringBuilder sb = new StringBuilder();
+		PowerUp pu = null;
+		
+		for(int i = 0; i < 4; i++) {
+			pu = powerUpArray[i];
+			sb.append(pu.toString());
+		}
+		
+		return sb.toString();
+	}
 
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Difficulty: ").append("arbtriary").append(", powerUpArray=")
-				.append(Arrays.toString(powerUpArray)).append(", currentAmountOfSouls=").append(currentAmountOfSouls)
-				.append("]");
+		builder.append("Difficulty: ").append("arbtriary")
+		.append("Passive modifier: ").append(getTotalSoulModifier())
+		.append(appendPowerUpData()).append(appendLevelData());
 		return builder.toString();
 	}
 	

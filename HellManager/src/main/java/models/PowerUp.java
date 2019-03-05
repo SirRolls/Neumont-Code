@@ -36,6 +36,15 @@ public class PowerUp {
 	public void setPowerUpTier(int powerUpTier) {
 		this.powerUpTier = powerUpTier;
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Power Up").append(getPowerUpTier()+"\n")
+		.append("Souls required: ").append(getSoulFee()+"\n")
+		.append("Power Up Modifier: ").append(getPowerupmodifier()).append("\n");
+		return builder.toString();
+	}
 	
 	
 
