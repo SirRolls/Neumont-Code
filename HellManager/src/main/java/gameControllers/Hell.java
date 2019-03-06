@@ -1,6 +1,5 @@
 package gameControllers;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Set;
 
@@ -198,20 +197,17 @@ public class Hell {
 				l = levelManager.get(i + 1);
 				sb.append(l.toString()).append("\r");
 		}
-		
 		return sb.toString();
 	}
 	
-	private String appendPowerUpData() {
+	private String appendPowerUpData() { 
 		StringBuilder sb = new StringBuilder();
 		PowerUp pu = null;
 		
 		for(int i = 0; i < 4; i++) {
 			pu = powerUpArray[i];
 			sb.append(pu.toString()).append("\r");
-
 		}
-		
 		return sb.toString();
 	}
 
@@ -223,7 +219,4 @@ public class Hell {
 		.append(appendPowerUpData()).append(appendLevelData());
 		return builder.toString();
 	}
-	
-	
-
 }
