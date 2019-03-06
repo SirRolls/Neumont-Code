@@ -3,10 +3,8 @@ package gameControllers;
 import java.util.HashMap;
 
 import enums.DifficultyType;
-import enums.SoulType;
 import models.Level;
 import models.PowerUp;
-import models.Soul;
 
 public class Heaven {
 	
@@ -15,23 +13,16 @@ public class Heaven {
 	private HashMap<Integer, Level> levelManager;
 	private int passiveLevelCapModifier;
 	private PowerUp[] powerUpArray = new PowerUp[4];
-	private int currentAmountOfSouls;
+	private int currentSoulAmount;
 	
 	public Heaven() {
 		
 	}
 	
-	private Soul createSoul() {
-		SoulType soulType = SoulType.REPENTANCE;
-		Soul soul = new Soul(soulType);
-		
-		return soul;
-	}
-	
 	private Level getLevel() {
 		
 		
-		return new Level(0,0,0,0);
+		return new Level(0,0,0);
 	}
 	
 	private void levelCapacityManager() {
@@ -115,10 +106,5 @@ public class Heaven {
 	public void setPowerUpArray(PowerUp[] powerUpArray) {
 		this.powerUpArray = powerUpArray;
 	}
-	public void setCurrentAmountOfSouls(int currentAmountOfSouls){
-		this.currentAmountOfSouls = currentAmountOfSouls;
-	}
-	public int getCurrentAmountOfSouls(){
-		return currentAmountOfSouls();
-	}
+	
 }

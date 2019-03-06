@@ -2,6 +2,7 @@ package programController;
 
 import gameControllers.Heaven;
 import gameControllers.Hell;
+import lib.ConsoleIO;
 
 public class Manager {
 	
@@ -11,24 +12,31 @@ public class Manager {
 	private Heaven multiPlayerHeaven;
 	
 	public static void initiateHM() {
+		int difficulty;
+		String [] options = {"Easy","Medium","Hard"};
+		difficulty = ConsoleIO.promptForMenuSelection("Please select a difficulty: ", options, false);
+		Hell h = new Hell(difficulty);
+		
+		System.out.println(h.toString());
 		
 	}
 	
 	private static void multiplayerSelection() {
 		
+		
+		
 	}
 	
 	private static void singlePlayer() {
+		
+		
 		
 	}
 	
 	private static void multiPlayer() {
 		
+		
+		
 	}
 	
-	private static Hell createHell() {
-		
-		return new Hell();
-	}
-
 }

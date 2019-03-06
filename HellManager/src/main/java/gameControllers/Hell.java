@@ -1,126 +1,181 @@
 package gameControllers;
 
 import java.util.HashMap;
+import java.util.Set;
+import java.util.Timer;
+import java.util.TimerTask;
 
-import enums.DifficultyType;
-import enums.SoulType;
 import models.Level;
 import models.PowerUp;
-import models.Soul;
 
 public class Hell {
-	
-	private DifficultyType difficultyType;
-	private static int totalModifier;
-	private HashMap<Integer, Level> levelManager;
+
+	private HashMap<Integer, Level> levelManager = new HashMap<>();
 	private PowerUp[] powerUpArray = new PowerUp[4];
+	private static int totalSoulModifier;
 	private int currentAmountOfSouls;
-	
-	//dificulty type decleration will be postponed until after GUI is being started
-	public Hell() {
-		
+	private Timer income = new Timer(true);
+
+	public Hell(int difficultySoulIncomeMultiplier) {
+		createLevels();
+		createPowerUps();
+		appendLevelData();
+		appendPowerUpData();
+		modifierModifier(difficultySoulIncomeMultiplier);
+		soulIncomeManager();
 	}
-	
-	private Soul createSoul() {
-		SoulType soulType = SoulType.REPENTANCE;
-		Soul soul = new Soul(soulType);
-		
-		return soul;
-	}
-	private void createLevels(){
-		int levelNum;
-		int maxSoulCap;
-		int currentSoulAmount = getCurrentSoulAmount();
-		
-		for(int i =0; i < 7; i++){
-			levelNum = i + 1;
-			if(levelNum == 1){
-				maxSoulCap = 10,000;(arbitrary)
-			}else{
-				int temp = maxSoulCap * .20;
-				maxSoulCap += temp;
-			}
+
+	private void createLevels() {
+
+		int levelNumber;
+		int maxSoulCap = 10000;
+		int currentSoulAmount = getCurrentAmountOfSouls();
+
+		for (int i = 0; i < 7; i++) {
+			levelNumber = i + 1;
 			Level l = new Level(levelNumber, maxSoulCap, currentSoulAmount);
-			levelManager.put(levelNumber,l);
+			levelManager.put(levelNumber, l);
 		}
 	}
-	
+
 	private boolean levelCapacityManager(int levelNumber) {
-		boolean maxMet = false
+		boolean maxMet = false;
 		Level l = levelManager.get(levelNumber);
-		if(l.getCurrentSoulAmount() >= l.getMaxSoulCap()){
-			l.setCurrentSoulAmount() = l.getMaxSoulCap();
+		if (l.getCurrentSoulAmount() >= l.getMaxSoulCap()) {
+			setCurrentAmountOfSouls(getCurrentAmountOfSouls() + (l.getCurrentSoulAmount() - l.getMaxSoulCap())); 
+			l.setCurrentSoulAmount(l.getMaxSoulCap());
 			maxMet = true;
 		}
 		return maxMet;
 	}
-	
-	private String displayLevelMaxCapacity(int levelNumber) {
-		StringBuiler maxCapacity = new StringBuilder();
+
+	private String displayerLevelMaxCapacity(int levelNumber) {
+		StringBuilder maxCapacity = new StringBuilder();
 		Level l = levelManager.get(levelNumber);
 		maxCapacity.append(l.getMaxSoulCap());
+
 		return maxCapacity.toString();
 	}
-	
-	private String displayLevelCurrentCapacity() {
-		StringBuiler maxCapacity = new StringBuilder();
+
+	private String displayLevelCurrentCapacity(int levelNumber) {
+
+		StringBuilder currentCapacity = new StringBuilder();
 		Level l = levelManager.get(levelNumber);
-		maxCapacity.append(l.getCurrentSoulAmount());
-		return maxCapacity.toString();
+		currentCapacity.append(l.getCurrentSoulAmount());
+
+		return currentCapacity.toString();
+
 	}
-	
+
 	private void maxCapModifier() {
 		boolean isFilled;
-		int passiveMod;
+		int passiveMod = 0;
 		Level l = null;
-		for(int i = 0; i < 7; i++){
-			isFilled = levelCapacityManager((i+1));
-			if(isFilled){
-				l = levelManager.get(i+1);
-				passiveMod  +=  l.getMaxSoulCapModifer();
-				setTotalModifier(passiveMod);
+		for (int i = 0; i < 7; i++) {
+			isFilled = levelCapacityManager((i + 1));
+			if (isFilled) {
+				l = levelManager.get(i + 1);
+				passiveMod += l.getMaxSoulCapModifier();
+				modifierModifier(passiveMod);
 			}
 		}
 	}
-	
-	private void powerUpManager() {
-		
-	}
-	
+
 	private void createPowerUps() {
-		
+		int baseSoulFee = 0;
+		int soulFee;
+		int powerUpTier;
+
+		for (int i = 0; i < 4; i++) {
+			powerUpTier = i + 1;
+			if (i == 0) {
+				baseSoulFee = 2500;
+				PowerUp pu = new PowerUp(baseSoulFee, powerUpTier);
+				powerUpArray[i] = pu;
+			} else {
+
+				int temp = baseSoulFee * i+1;
+				soulFee = baseSoulFee + temp;
+				PowerUp pu = new PowerUp(soulFee, powerUpTier);
+				powerUpArray[i] = pu;
+			}
+		}
 	}
-	
-	private void tierOnePowerUps() {
-		
+
+	private void powerUpManager() {
+		PowerUp pu = null;
+		int powerUpSelected = 0;
+		int tierOneCounter;
+		int tierTwoCounter;
+		int tierThreeCounter;
+		int tierFourCounter;
+
+		tierOneCounter = 0;
+		tierTwoCounter = 0;
+		tierThreeCounter = 0;
+		tierFourCounter = 0;
+
+		if (tierOneCounter < 4 && powerUpSelected == 1) {
+			tierOneCounter++;
+			pu = powerUpArray[0];
+			powerUpUpgrader(pu);
+			System.out.println(pu.getPowerupmodifier());
+			pu = null;
+		}else {
+			//make unavailable
+		}
+		if (tierTwoCounter < 4 && powerUpSelected == 2) {
+			tierTwoCounter++;
+			pu = powerUpArray[1];
+			powerUpUpgrader(pu);
+			System.out.println(pu.getPowerupmodifier());
+			pu = null;
+		}
+		if (tierThreeCounter < 4 && powerUpSelected == 3) {
+			tierThreeCounter++;
+			pu = powerUpArray[2];
+			powerUpUpgrader(pu);
+			System.out.println(pu.getPowerupmodifier());
+			pu = null;
+		}
+		if (tierFourCounter < 4 && powerUpSelected == 4) {
+			tierFourCounter++;
+			pu = powerUpArray[3];
+			powerUpUpgrader(pu);
+			System.out.println(pu.getPowerupmodifier());
+			pu = null;
+		}
+
 	}
-	
-	private void tierTwoPowerUps() {
+
+	private void powerUpUpgrader(PowerUp powerUp) {
 		
-	}
-	
-	private void tierThreePowerUps() {
-		
-	}
-	
-	private void tierFourPowerUps() {
+		powerUp.setSoulFee((int)Math.round(powerUp.getSoulFee() * .5));
 		
 	}
 
-	public DifficultyType getDifficultyType() {
-		return difficultyType;
-	}
+	private void modifierModifier(int modifier) {
 
-	public void setDifficultyType(DifficultyType difficultyType) {
-		this.difficultyType = difficultyType;
-	}
+		totalSoulModifier += modifier;
 
-	public int getDifficultySoulIncomeMultiplier() {
-		return difficultySoulIncomeMultiplier;
 	}
+	
+	private void soulIncomeManager() {
 
-	public void setDifficultySoulIncomeMultiplier(int difficultySoulIncomeMultiplier) {
-		this.difficultySoulIncomeMultiplier = difficultySoulIncomeMultiplier;
+		TimerTask incomePerTick = new TimerTask() {
+
+			@Override
+			public void run() {
+
+				setCurrentAmountOfSouls(getCurrentAmountOfSouls() + (10 * getTotalSoulModifier()));
+				System.out.println(getCurrentAmountOfSouls());
+				
+			}
+			
+		};
+		
+		income.scheduleAtFixedRate(incomePerTick, 0, 1000);
+		
 	}
 
 	public HashMap<Integer, Level> getLevelManager() {
@@ -131,14 +186,6 @@ public class Hell {
 		this.levelManager = levelManager;
 	}
 
-	public int getPassiveLevelCapModifier() {
-		return passiveLevelCapModifier;
-	}
-
-	public void setPassiveLevelCapModifier(int passiveLevelCapModifier) {
-		this.passiveLevelCapModifier = passiveLevelCapModifier;
-	}
-
 	public PowerUp[] getPowerUpArray() {
 		return powerUpArray;
 	}
@@ -146,19 +193,53 @@ public class Hell {
 	public void setPowerUpArray(PowerUp[] powerUpArray) {
 		this.powerUpArray = powerUpArray;
 	}
-	public void setCurrentAmountOfSouls(int currentAmountOfSouls){
+
+	public int getTotalSoulModifier() {
+		return totalSoulModifier;
+	}
+
+	public int getCurrentAmountOfSouls() {
+		return currentAmountOfSouls;
+	}
+
+	public void setCurrentAmountOfSouls(int currentAmountOfSouls) {
 		this.currentAmountOfSouls = currentAmountOfSouls;
 	}
-	public int getCurrentAmountOfSouls(){
-		return currentAmountOfSouls();
+
+	public static void setTotalSoulModifier(int totalSoulModifier) {
+		Hell.totalSoulModifier = totalSoulModifier;
 	}
-	public int getTotalModifier(){
-		return totalModifer;
-	}
-	public void setTotalModifier(int totalModifier){
-		this.totalModifier = totalModifier;
+
+	private String appendLevelData() {
+		StringBuilder sb = new StringBuilder();
+		Level l = null;
+		Set levelKeys;
+		
+		for(int i = 0; i < levelManager.size(); i++) {
+				l = levelManager.get(i + 1);
+				sb.append(l.toString()).append("\r");
+		}
+		return sb.toString();
 	}
 	
-	
-	
+	private String appendPowerUpData() { 
+		StringBuilder sb = new StringBuilder();
+		PowerUp pu = null;
+		
+		for(int i = 0; i < 4; i++) {
+			pu = powerUpArray[i];
+			sb.append(pu.toString()).append("\r");
+		}
+		return sb.toString();
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Difficulty: ").append("arbtriary\r")
+		.append("Passive modifier: ").append(getTotalSoulModifier()).append("\r")
+		.append(appendPowerUpData()).append(appendLevelData());
+		return builder.toString();
+	}
+
 }

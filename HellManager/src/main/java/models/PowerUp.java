@@ -3,14 +3,13 @@ package models;
 public class PowerUp {
 	private int soulFee;
 	private int powerUpTier;
-	private final int POWERUPMODIFIER;
+	private static final int POWERUPMODIFIER = 7;
 	
 	
-	public PowerUp(int POWERUPMODIFIER, int soulFee, int powerUpTier) {
+	public PowerUp(int soulFee, int powerUpTier) {
 		
 		setSoulFee(soulFee);
 		setPowerUpTier(powerUpTier);
-		this.POWERUPMODIFIER = POWERUPMODIFIER;
 	
 	}
 
@@ -36,6 +35,15 @@ public class PowerUp {
 
 	public void setPowerUpTier(int powerUpTier) {
 		this.powerUpTier = powerUpTier;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Power Up").append(getPowerUpTier()+"\n")
+		.append("Souls required: ").append(getSoulFee()+"\n")
+		.append("Power Up Modifier: ").append(getPowerupmodifier()).append("\n");
+		return builder.toString();
 	}
 	
 	
