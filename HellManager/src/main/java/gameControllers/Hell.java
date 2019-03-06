@@ -1,8 +1,9 @@
 package gameControllers;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Set;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import models.Level;
 import models.PowerUp;
@@ -13,6 +14,7 @@ public class Hell {
 	private PowerUp[] powerUpArray = new PowerUp[4];
 	private static int totalSoulModifier;
 	private int currentAmountOfSouls;
+	private Timer income = new Timer(true);
 
 	public Hell(int difficultySoulIncomeMultiplier) {
 		createLevels();
@@ -20,6 +22,7 @@ public class Hell {
 		appendLevelData();
 		appendPowerUpData();
 		modifierModifier(difficultySoulIncomeMultiplier);
+		soulIncomeManager();
 	}
 
 	private void createLevels() {
@@ -156,6 +159,24 @@ public class Hell {
 		totalSoulModifier += modifier;
 
 	}
+	
+	private void soulIncomeManager() {
+
+		TimerTask incomePerTick = new TimerTask() {
+
+			@Override
+			public void run() {
+
+				setCurrentAmountOfSouls(getCurrentAmountOfSouls() + (10 * getTotalSoulModifier()));
+				System.out.println(getCurrentAmountOfSouls());
+				
+			}
+			
+		};
+		
+		income.scheduleAtFixedRate(incomePerTick, 0, 1000);
+		
+	}
 
 	public HashMap<Integer, Level> getLevelManager() {
 		return levelManager;
@@ -223,7 +244,5 @@ public class Hell {
 		.append(appendPowerUpData()).append(appendLevelData());
 		return builder.toString();
 	}
-	
-	
 
 }
