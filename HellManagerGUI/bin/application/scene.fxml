@@ -76,13 +76,13 @@
         <AnchorPane>
           <children>
             <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="14.0" style="&#10;" text="Levels" textAlignment="CENTER" textFill="$x2" wrapText="false" />
-                  <ProgressBar layoutX="117.0" layoutY="72.0" prefWidth="200.0" progress="0.0" />
-                  <ProgressBar layoutX="117.0" layoutY="150.0" prefWidth="200.0" progress="0.0" />
-                  <ProgressBar layoutX="117.0" layoutY="224.0" prefWidth="200.0" progress="0.0" />
-                  <ProgressBar layoutX="117.0" layoutY="288.0" prefWidth="200.0" progress="0.0" />
-                  <ProgressBar layoutX="117.0" layoutY="365.0" prefWidth="200.0" progress="0.0" />
-                  <ProgressBar layoutX="117.0" layoutY="434.0" prefWidth="200.0" progress="0.0" />
-                  <ProgressBar layoutX="117.0" layoutY="497.0" prefWidth="200.0" progress="0.0" />
+                  <ProgressBar layoutX="117.0" layoutY="72.0" prefWidth="200.0" progress="0.0" id="progress1"/>
+                  <ProgressBar layoutX="117.0" layoutY="150.0" prefWidth="200.0" progress="0.0" id="progress2"/>
+                  <ProgressBar layoutX="117.0" layoutY="224.0" prefWidth="200.0" progress="0.0" id="progress3"/>
+                  <ProgressBar layoutX="117.0" layoutY="288.0" prefWidth="200.0" progress="0.0" id="progress4"/>
+                  <ProgressBar layoutX="117.0" layoutY="365.0" prefWidth="200.0" progress="0.0" id="progress5"/>
+                  <ProgressBar layoutX="117.0" layoutY="434.0" prefWidth="200.0" progress="0.0" id="progress6"/>
+                  <ProgressBar layoutX="117.0" layoutY="497.0" prefWidth="200.0" progress="0.0"id="progress7" />
                   <Text layoutX="14.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CurrentSoulAmount/MaxAmount" wrappingWidth="111.22119140625" />
                   <Text layoutX="7.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CurrentSoulAmount/MaxAmount" wrappingWidth="130.22119140625" />
                   <Text layoutY="198.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CurrentSoulAmount/MaxAmount" wrappingWidth="111.22119140625" />
