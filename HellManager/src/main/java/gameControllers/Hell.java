@@ -24,6 +24,8 @@ public class Hell {
 		modifierModifier(difficultySoulIncomeMultiplier);
 		soulIncomeManager();
 	}
+	
+	
 
 	private void createLevels() {
 
@@ -169,6 +171,7 @@ public class Hell {
 
 				setCurrentAmountOfSouls(getCurrentAmountOfSouls() + (10 * getTotalSoulModifier()));
 				System.out.println(getCurrentAmountOfSouls());
+				//make this method return an int and tie the int a progress chart that shows the user how many souls are left to collect
 				
 			}
 			
