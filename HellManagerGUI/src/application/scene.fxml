@@ -46,11 +46,7 @@
                 <Color blue="0.624" green="0.624" red="0.624" fx:id="x2" />
               </textFill>
             </Label>
-<<<<<<< HEAD
-                  <Button layoutX="33.0" layoutY="58.0" mnemonicParsing="false" text="Horse1" />
-=======
                   <Button onAction="#TestPb" layoutX="33.0" layoutY="58.0" mnemonicParsing="false" text="Horse1" />
->>>>>>> dev
                   <Button layoutX="33.0" layoutY="126.0" mnemonicParsing="false" text="Horse2" />
                   <Button layoutX="33.0" layoutY="198.0" mnemonicParsing="false" text="Horse3" />
                   <Button layoutX="33.0" layoutY="267.0" mnemonicParsing="false" text="Horse4" />
@@ -70,11 +66,7 @@
               <children>
                 <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="14.0" style="&#10;" text="Souls" textAlignment="CENTER" textFill="$x2" wrapText="false" />
                         <TextArea layoutX="230.0" prefHeight="200.0" prefWidth="200.0" text="With incoming souls select &#10;a level to store the soul,&#10; each level gives a &#10;passive modifier that IS &#10;stackable. &#10;Fill all levels of Hell before &#10;time runs out." />
-<<<<<<< HEAD
-                        <ProgressBar layoutX="95.0" layoutY="423.0" prefWidth="200.0" progress="0.0" />
-=======
                         <ProgressBar fx:id="pb1" layoutX="95.0" layoutY="423.0" prefWidth="200.0" progress="0.0" />
->>>>>>> dev
                         <Text layoutX="95.0" layoutY="465.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Max" />
                         <Text layoutX="262.0" layoutY="465.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Min" />
               </children>
@@ -84,15 +76,6 @@
         <AnchorPane>
           <children>
             <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="14.0" style="&#10;" text="Levels" textAlignment="CENTER" textFill="$x2" wrapText="false" />
-<<<<<<< HEAD
-                                    <ProgressBar layoutX="117.0" layoutY="72.0" prefWidth="200.0" progress="0.0" />
-                  <ProgressBar layoutX="117.0" layoutY="150.0" prefWidth="200.0" progress="0.0" />
-                  <ProgressBar layoutX="117.0" layoutY="224.0" prefWidth="200.0" progress="0.0" />
-                  <ProgressBar layoutX="117.0" layoutY="288.0" prefWidth="200.0" progress="0.0" />
-                  <ProgressBar layoutX="117.0" layoutY="365.0" prefWidth="200.0" progress="0.0" />
-                  <ProgressBar layoutX="117.0" layoutY="434.0" prefWidth="200.0" progress="0.0" />
-                  <ProgressBar layoutX="117.0" layoutY="497.0" prefWidth="200.0" progress="0.0" />
-=======
                   <ProgressBar fx:id="pb2" layoutX="117.0" layoutY="72.0" prefWidth="200.0" progress="0.0" />
                   <ProgressBar fx:id="pb3" layoutX="117.0" layoutY="150.0" prefWidth="200.0" progress="0.0" />
                   <ProgressBar fx:id="pb4" layoutX="117.0" layoutY="224.0" prefWidth="200.0" progress="0.0" />
@@ -100,7 +83,6 @@
                   <ProgressBar fx:id="pb7" layoutX="117.0" layoutY="365.0" prefWidth="200.0" progress="0.0" />
                   <ProgressBar fx:id="pb8" layoutX="117.0" layoutY="434.0" prefWidth="200.0" progress="0.0" />
                   <ProgressBar fx:id="pb9" layoutX="117.0" layoutY="497.0" prefWidth="200.0" progress="0.0" />
->>>>>>> dev
                   <Text layoutX="14.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CurrentSoulAmount/MaxAmount" wrappingWidth="111.22119140625" />
                   <Text layoutX="7.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CurrentSoulAmount/MaxAmount" wrappingWidth="130.22119140625" />
                   <Text layoutY="198.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CurrentSoulAmount/MaxAmount" wrappingWidth="111.22119140625" />
