@@ -14,6 +14,7 @@ public class Hell {
 	private PowerUp[] powerUpArray = new PowerUp[4];
 	private static int totalSoulModifier;
 	private int currentAmountOfSouls;
+	private int maxSoulsPossible;
 	private Timer income = new Timer(true);
 
 	public Hell(int difficultySoulIncomeMultiplier) {
@@ -23,10 +24,9 @@ public class Hell {
 		appendPowerUpData();
 		modifierModifier(difficultySoulIncomeMultiplier);
 		soulIncomeManager();
+		maxSoulsPossible();
 	}
 	
-	
-
 	private void createLevels() {
 
 		int levelNumber;
@@ -180,6 +180,25 @@ public class Hell {
 		income.scheduleAtFixedRate(incomePerTick, 0, 1000);
 		
 	}
+	
+	private void maxSoulsPossible() {
+		int soulsNeededForLevels = 0;
+		Level l = null;
+		PowerUp pu = null;
+		for(int i = 0; i < levelManager.size(); i++) {
+			int temp;
+			int temp1;
+			
+			l = levelManager.get(i);
+			pu = powerUpArray[i];
+			
+			temp = l.getMaxSoulCap();
+			temp1 = pu.getSoulFee();
+			
+			soulsNeededForLevels += temp;
+			soulsNeededForLevels += temp1;
+		}
+	}
 
 	public HashMap<Integer, Level> getLevelManager() {
 		return levelManager;
@@ -213,10 +232,17 @@ public class Hell {
 		Hell.totalSoulModifier = totalSoulModifier;
 	}
 
+	public int getMaxSoulsPossible() {
+		return maxSoulsPossible;
+	}
+
+	public void setMaxSoulsPossible(int maxSoulsPossible) {
+		this.maxSoulsPossible = maxSoulsPossible;
+	}
+
 	private String appendLevelData() {
 		StringBuilder sb = new StringBuilder();
 		Level l = null;
-		Set levelKeys;
 		
 		for(int i = 0; i < levelManager.size(); i++) {
 				l = levelManager.get(i + 1);
