@@ -1,7 +1,7 @@
 package controllers;
 
 import java.util.ResourceBundle;
-
+import java.awt.Button;
 import java.net.URL;
 
 import javafx.fxml.FXML;
@@ -30,15 +30,15 @@ public class FxFXMLController {
 	    private ProgressBar pb9;
 	    @FXML
 	    private ResourceBundle resources;
+	    @FXML
+	    private Button startButton;
 	     
 	    // Add a public no-args constructor
-	    public FxFXMLController() 
-	    {
+	    public FxFXMLController(){
 	    }
 	     
 	    @FXML
-	    private void initialize() 
-	    {
+	    private void initialize(){
 	    }
 	    @FXML
 	    public void TestPb() {
