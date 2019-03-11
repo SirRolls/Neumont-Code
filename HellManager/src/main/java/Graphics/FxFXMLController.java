@@ -83,6 +83,7 @@ public class FxFXMLController {
 
 			@Override
 			public void handle(ActionEvent event) {
+				float progressChanged;
 				int choice = Layer1CB.getSelectionModel().getSelectedItem();
 
 			}
@@ -154,6 +155,8 @@ public class FxFXMLController {
 
 		);
 	}
+	
+	
 
 	public void Exit() {
 		System.exit(0);
