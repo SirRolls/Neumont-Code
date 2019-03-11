@@ -4,7 +4,9 @@ import java.util.ResourceBundle;
 import java.awt.Button;
 import java.net.URL;
 
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ProgressBar;
 
 public class FxFXMLController {
@@ -29,6 +31,20 @@ public class FxFXMLController {
 	    @FXML
 	    private ProgressBar pb9;
 	    @FXML
+	    private ChoiceBox Layer1CB;
+	    @FXML
+	    private ChoiceBox Layer2CB;
+	    @FXML
+	    private ChoiceBox Layer3CB;
+	    @FXML
+	    private ChoiceBox Layer4CB;
+	    @FXML
+	    private ChoiceBox Layer5CB;
+	    @FXML
+	    private ChoiceBox Layer6CB;
+	    @FXML
+	    private ChoiceBox Layer7CB;
+	    @FXML
 	    private ResourceBundle resources;
 	    @FXML
 	    private Button startButton;
@@ -41,8 +57,18 @@ public class FxFXMLController {
 	    private void initialize(){
 	    }
 	    @FXML
-	    public void TestPb() {
-	    	pb1.setProgress(1);
-	    	pb2.setProgress(.5);
+	    public void Layer1ButtonPressed() {
+	    	
 	    }
+	    @FXML
+	    public void InitGame() {
+	    	Layer1CB.setItems(FXCollections.observableArrayList(10,50,100,1000));
+	    	Layer2CB.setItems(FXCollections.observableArrayList(10,50,100,1000));
+	    	Layer3CB.setItems(FXCollections.observableArrayList(10,50,100,1000));
+	    	Layer4CB.setItems(FXCollections.observableArrayList(10,50,100,1000));
+	    	Layer5CB.setItems(FXCollections.observableArrayList(10,50,100,1000));
+	    	Layer6CB.setItems(FXCollections.observableArrayList(10,50,100,1000));
+	    	Layer7CB.setItems(FXCollections.observableArrayList(10,50,100,1000));
+	    	
+	    	}
 }
