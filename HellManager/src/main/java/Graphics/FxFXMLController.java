@@ -1,4 +1,4 @@
-package controllers;
+package Graphics;
 
 import java.util.ResourceBundle;
 
