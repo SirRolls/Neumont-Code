@@ -189,7 +189,7 @@ public class Hell {
 			int temp;
 			int temp1;
 			
-			l = levelManager.get(i);
+			l = levelManager.get(i+1);
 			pu = powerUpArray[i];
 			
 			temp = l.getMaxSoulCap();
