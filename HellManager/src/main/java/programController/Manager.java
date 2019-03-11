@@ -13,11 +13,15 @@ public class Manager {
 	
 	public static void initiateHM() {
 		int difficulty;
-		String [] options = {"Easy","Medium","Hard"};
+		String [] options = {"Hard","Medium","Easy"};
 		difficulty = ConsoleIO.promptForMenuSelection("Please select a difficulty: ", options, false);
 		Hell h = new Hell(difficulty);
 		
-		System.out.println(h.toString());
+		System.out.println(h.toString() + h.getMaxSoulsPossible());
+		
+		while(h.getCurrentAmountOfSouls() < h.getMaxSoulsPossible()) {
+			
+		}
 		
 	}
 	

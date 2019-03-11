@@ -12,7 +12,7 @@ public class Hell {
 
 	private HashMap<Integer, Level> levelManager = new HashMap<>();
 	private PowerUp[] powerUpArray = new PowerUp[4];
-	private static int totalSoulModifier;
+	private static float totalSoulModifier;
 	private int currentAmountOfSouls;
 	private int maxSoulsPossible;
 	private Timer income = new Timer(true);
@@ -22,9 +22,9 @@ public class Hell {
 		createPowerUps();
 		appendLevelData();
 		appendPowerUpData();
-		modifierModifier(difficultySoulIncomeMultiplier);
-		soulIncomeManager();
+		modifierModifier(difficultySoulIncomeMultiplier/2f);
 		maxSoulsPossible();
+		soulIncomeManager();
 	}
 	
 	private void createLevels() {
@@ -40,10 +40,10 @@ public class Hell {
 		}
 	}
 
-	public boolean levelCapacityManager(int levelNumber) {
+	public boolean fillALevel(int level, int amountToAdd) {
 		boolean maxMet = false;
-		Level l = levelManager.get(levelNumber);
-		if (l.getCurrentSoulAmount() >= l.getMaxSoulCap()) {
+		Level l = levelManager.get(level);
+		if (amountToAdd >= l.getMaxSoulCap() - l.getCurrentSoulAmount()) {
 			setCurrentAmountOfSouls(getCurrentAmountOfSouls() + (l.getCurrentSoulAmount() - l.getMaxSoulCap())); 
 			l.setCurrentSoulAmount(l.getMaxSoulCap());
 			maxMet = true;
@@ -74,7 +74,7 @@ public class Hell {
 		int passiveMod = 0;
 		Level l = null;
 		for (int i = 0; i < 7; i++) {
-			isFilled = levelCapacityManager((i + 1));
+			isFilled = fillALevel((i + 1), 0);
 			if (isFilled) {
 				l = levelManager.get(i + 1);
 				passiveMod += l.getMaxSoulCapModifier();
@@ -104,9 +104,8 @@ public class Hell {
 		}
 	}
 
-	private void powerUpManager() {
+	private void powerUpManager(int powerUpSelected) {
 		PowerUp pu = null;
-		int powerUpSelected = 0;
 		int tierOneCounter;
 		int tierTwoCounter;
 		int tierThreeCounter;
@@ -121,6 +120,7 @@ public class Hell {
 			tierOneCounter++;
 			pu = powerUpArray[0];
 			powerUpUpgrader(pu);
+			modifierModifier(pu.getPowerupmodifier());
 			System.out.println(pu.getPowerupmodifier());
 			pu = null;
 		}else {
@@ -130,6 +130,7 @@ public class Hell {
 			tierTwoCounter++;
 			pu = powerUpArray[1];
 			powerUpUpgrader(pu);
+			modifierModifier(pu.getPowerupmodifier());
 			System.out.println(pu.getPowerupmodifier());
 			pu = null;
 		}
@@ -137,6 +138,7 @@ public class Hell {
 			tierThreeCounter++;
 			pu = powerUpArray[2];
 			powerUpUpgrader(pu);
+			modifierModifier(pu.getPowerupmodifier());
 			System.out.println(pu.getPowerupmodifier());
 			pu = null;
 		}
@@ -144,6 +146,7 @@ public class Hell {
 			tierFourCounter++;
 			pu = powerUpArray[3];
 			powerUpUpgrader(pu);
+			modifierModifier(pu.getPowerupmodifier());
 			System.out.println(pu.getPowerupmodifier());
 			pu = null;
 		}
@@ -156,12 +159,12 @@ public class Hell {
 		
 	}
 
-	private void modifierModifier(int modifier) {
+	private void modifierModifier(float modifier) {
 
 		totalSoulModifier += modifier;
 
 	}
-	
+
 	private void soulIncomeManager() {
 
 		TimerTask incomePerTick = new TimerTask() {
@@ -169,7 +172,11 @@ public class Hell {
 			@Override
 			public void run() {
 
-				setCurrentAmountOfSouls(getCurrentAmountOfSouls() + (10 * getTotalSoulModifier()));
+				if(getCurrentAmountOfSouls() > getMaxSoulsPossible()) {
+					setCurrentAmountOfSouls(getMaxSoulsPossible());
+					income.cancel();
+				}
+				setCurrentAmountOfSouls(getCurrentAmountOfSouls() + Math.round((10 * getTotalSoulModifier())));
 				System.out.println(getCurrentAmountOfSouls());
 				//make this method return an int and tie the int a progress chart that shows the user how many souls are left to collect
 				
@@ -177,7 +184,7 @@ public class Hell {
 			
 		};
 		
-		income.scheduleAtFixedRate(incomePerTick, 0, 1000);
+		income.scheduleAtFixedRate(incomePerTick, 0, 1);
 		
 	}
 	
@@ -189,6 +196,7 @@ public class Hell {
 				soulsNeededForLevels += powerUpArray[i].getSoulFee();
 			}
 		}
+		setMaxSoulsPossible(soulsNeededForLevels);
 	}
 
 	public HashMap<Integer, Level> getLevelManager() {
@@ -207,7 +215,7 @@ public class Hell {
 		this.powerUpArray = powerUpArray;
 	}
 
-	public int getTotalSoulModifier() {
+	public float getTotalSoulModifier() {
 		return totalSoulModifier;
 	}
 
