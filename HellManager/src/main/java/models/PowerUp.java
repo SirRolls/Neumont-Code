@@ -3,7 +3,7 @@ package models;
 public class PowerUp {
 	private int soulFee;
 	private int powerUpTier;
-	private static final int POWERUPMODIFIER = 7;
+	private static final float POWERUPMODIFIER = .7f;
 	
 	
 	public PowerUp(int soulFee, int powerUpTier) {
@@ -13,7 +13,7 @@ public class PowerUp {
 	
 	}
 
-	public int getPowerupmodifier() {
+	public float getPowerupmodifier() {
 		return POWERUPMODIFIER;
 	}
 
