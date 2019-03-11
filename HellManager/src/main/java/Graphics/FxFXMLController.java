@@ -11,21 +11,11 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.text.Text;
 
 public class FxFXMLController {
-
 	@FXML
-	public void InitGame() {
-		Layer1CB.setItems(FXCollections.observableArrayList(10, 50, 100, 1000));
-		Layer2CB.setItems(FXCollections.observableArrayList(10, 50, 100, 1000));
-		Layer3CB.setItems(FXCollections.observableArrayList(10, 50, 100, 1000));
-		Layer4CB.setItems(FXCollections.observableArrayList(10, 50, 100, 1000));
-		Layer5CB.setItems(FXCollections.observableArrayList(10, 50, 100, 1000));
-		Layer6CB.setItems(FXCollections.observableArrayList(10, 50, 100, 1000));
-		Layer7CB.setItems(FXCollections.observableArrayList(10, 50, 100, 1000));
-
-	}
-
+	private Text HelpText;
 	@FXML
 	private URL location;
 	@FXML
@@ -62,6 +52,8 @@ public class FxFXMLController {
 	private ChoiceBox<Integer> Layer7CB;
 	@FXML
 	private ResourceBundle resources;
+    @FXML
+    private ChoiceBox<String> Diff;
 
 	// Add a public no-args constructor
 	public FxFXMLController() {
@@ -69,6 +61,7 @@ public class FxFXMLController {
 
 	@FXML
 	private void initialize() {
+		Diff.setItems(FXCollections.observableArrayList("Easy","Medium","Hard"));
 	}
 
 	@FXML
@@ -78,11 +71,14 @@ public class FxFXMLController {
 
 	@FXML
 	public void Start() {
+		HelpText.setVisible(false);
+		pb1.setProgress(0.0);
 		Layer1CB.setItems(FXCollections.observableArrayList(10, 50, 100, 1000));
 		Layer1CB.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
 			public void handle(ActionEvent event) {
+				float progressChanged;
 				int choice = Layer1CB.getSelectionModel().getSelectedItem();
 
 			}
@@ -154,6 +150,8 @@ public class FxFXMLController {
 
 		);
 	}
+	
+	
 
 	public void Exit() {
 		System.exit(0);
