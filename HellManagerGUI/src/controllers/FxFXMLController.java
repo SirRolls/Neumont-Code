@@ -14,8 +14,6 @@ import javafx.scene.control.ProgressBar;
 
 public class FxFXMLController {
 
-
-
 	@FXML
 	public void InitGame() {
 		Layer1CB.setItems(FXCollections.observableArrayList(10, 50, 100, 1000));
