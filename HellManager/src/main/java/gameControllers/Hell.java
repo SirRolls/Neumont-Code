@@ -40,7 +40,7 @@ public class Hell {
 		}
 	}
 
-	private boolean levelCapacityManager(int levelNumber) {
+	public boolean levelCapacityManager(int levelNumber) {
 		boolean maxMet = false;
 		Level l = levelManager.get(levelNumber);
 		if (l.getCurrentSoulAmount() >= l.getMaxSoulCap()) {
@@ -51,7 +51,7 @@ public class Hell {
 		return maxMet;
 	}
 
-	private String displayerLevelMaxCapacity(int levelNumber) {
+	public String displayerLevelMaxCapacity(int levelNumber) {
 		StringBuilder maxCapacity = new StringBuilder();
 		Level l = levelManager.get(levelNumber);
 		maxCapacity.append(l.getMaxSoulCap());
@@ -59,7 +59,7 @@ public class Hell {
 		return maxCapacity.toString();
 	}
 
-	private String displayLevelCurrentCapacity(int levelNumber) {
+	public String displayLevelCurrentCapacity(int levelNumber) {
 
 		StringBuilder currentCapacity = new StringBuilder();
 		Level l = levelManager.get(levelNumber);
@@ -183,20 +183,11 @@ public class Hell {
 	
 	private void maxSoulsPossible() {
 		int soulsNeededForLevels = 0;
-		Level l = null;
-		PowerUp pu = null;
-		for(int i = 0; i < levelManager.size(); i++) {
-			int temp;
-			int temp1;
-			
-			l = levelManager.get(i);
-			pu = powerUpArray[i];
-			
-			temp = l.getMaxSoulCap();
-			temp1 = pu.getSoulFee();
-			
-			soulsNeededForLevels += temp;
-			soulsNeededForLevels += temp1;
+		for(int i = 0; i < levelManager.size(); i++) {			
+			soulsNeededForLevels += levelManager.get(i+1).getMaxSoulCap();
+			if(i < 4) {
+				soulsNeededForLevels += powerUpArray[i].getSoulFee();
+			}
 		}
 	}
 
