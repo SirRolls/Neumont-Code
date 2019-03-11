@@ -1,6 +1,5 @@
 package programController;
 
-import gameControllers.Heaven;
 import gameControllers.Hell;
 import lib.ConsoleIO;
 
@@ -9,7 +8,6 @@ public class Manager {
 	private boolean isMultiplayer;
 	private Hell singPlayerHell;
 	private Hell multiPlayerHell;
-	private Heaven multiPlayerHeaven;
 	
 	public static void initiateHM() {
 		int difficulty;
@@ -22,24 +20,6 @@ public class Manager {
 		while(h.getCurrentAmountOfSouls() < h.getMaxSoulsPossible()) {
 			
 		}
-		
-	}
-	
-	private static void multiplayerSelection() {
-		
-		
-		
-	}
-	
-	private static void singlePlayer() {
-		
-		
-		
-	}
-	
-	private static void multiPlayer() {
-		
-		
 		
 	}
 	
