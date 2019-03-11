@@ -183,20 +183,11 @@ public class Hell {
 	
 	private void maxSoulsPossible() {
 		int soulsNeededForLevels = 0;
-		Level l = null;
-		PowerUp pu = null;
-		for(int i = 0; i < levelManager.size(); i++) {
-			int temp;
-			int temp1;
-			
-			l = levelManager.get(i+1);
-			pu = powerUpArray[i];
-			
-			temp = l.getMaxSoulCap();
-			temp1 = pu.getSoulFee();
-			
-			soulsNeededForLevels += temp;
-			soulsNeededForLevels += temp1;
+		for(int i = 0; i < levelManager.size(); i++) {			
+			soulsNeededForLevels += levelManager.get(i+1).getMaxSoulCap();
+			if(i < 4) {
+				soulsNeededForLevels += powerUpArray[i].getSoulFee();
+			}
 		}
 	}
 
