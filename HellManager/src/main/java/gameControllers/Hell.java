@@ -184,7 +184,7 @@ public class Hell {
 			
 		};
 		
-		income.scheduleAtFixedRate(incomePerTick, 0, 1);
+		income.scheduleAtFixedRate(incomePerTick, 0, 100);
 		
 	}
 	
