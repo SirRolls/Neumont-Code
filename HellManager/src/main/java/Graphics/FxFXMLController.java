@@ -1,14 +1,11 @@
 package Graphics;
 
+import java.net.URL;
 import java.util.ResourceBundle;
 
 import gameControllers.Hell;
-
-import java.net.URL;
-
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
@@ -22,24 +19,24 @@ public class FxFXMLController {
 	@FXML
 	private URL location;
 	@FXML
-	private ProgressBar pb1;
-	@FXML
-	private ProgressBar pb2;
-	@FXML
-	private ProgressBar pb3;
-	@FXML
-	private ProgressBar pb4;
-	@FXML
-	private ProgressBar pb5;
-	@FXML
-	private ProgressBar pb6;
-	@FXML
-	private ProgressBar pb7;
-	@FXML
-	private ProgressBar pb8;
-	@FXML
-	private ProgressBar pb9;
-	@FXML
+	private ProgressBar pb1 = new ProgressBar(1);
+	@FXML                   
+	private ProgressBar pb2 = new ProgressBar(1);
+	@FXML                   
+	private ProgressBar pb3 = new ProgressBar(1);
+	@FXML                   
+	private ProgressBar pb4 = new ProgressBar(1);
+	@FXML                   
+	private ProgressBar pb5 = new ProgressBar(1);
+	@FXML                   
+	private ProgressBar pb6 = new ProgressBar(1);
+	@FXML                   
+	private ProgressBar pb7 = new ProgressBar(1);
+	@FXML                   
+	private ProgressBar pb8 = new ProgressBar(1);
+	@FXML                   
+	private ProgressBar pb9 = new ProgressBar(1);
+	@FXML                 
 	private ChoiceBox<Integer> Layer1CB;
 	@FXML
 	private ChoiceBox<Integer> Layer2CB;
@@ -56,7 +53,7 @@ public class FxFXMLController {
 	@FXML
 	private ResourceBundle resources;
     @FXML
-    private ChoiceBox<String> Diff;
+    private ChoiceBox<String> Diff = new ChoiceBox<String>();
     
     @FXML
     private String difficulty;
@@ -115,7 +112,7 @@ public class FxFXMLController {
 					progressChanged = 100 * .1f;
 				}
 				
-				pb1.setProgress(progressChanged);
+				pb2.setProgress(progressChanged);
 			}
 		});
 		Layer2CB.setItems(FXCollections.observableArrayList(10, 50, 100, 1000));
