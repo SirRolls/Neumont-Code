@@ -67,17 +67,9 @@ public class FxFXMLController {
 	Hell h = null;
 	@FXML
 	private void initialize() {
-		int diffInt;
 		Diff.setItems(FXCollections.observableArrayList("Easy","Medium","Hard"));
 		difficulty = Diff.getSelectionModel().getSelectedItem();
-		if(difficulty.equals("Easy")) {
-			diffInt = 3;
-		}else if(difficulty.equals("Medium")) {
-			diffInt = 2;
-		}else {
-			diffInt = 1;
-		}
-		h = new Hell(diffInt);
+		
 	}
 
 	@FXML
@@ -87,9 +79,18 @@ public class FxFXMLController {
 
 	@FXML
 	public void Start() {
+		int diffInt = 0;
 		HelpText.setVisible(false);
 		pb1.setProgress(0.0);
 		Layer1CB.setItems(FXCollections.observableArrayList(10, 50, 100, 1000));
+		if(difficulty.equals("Easy")) {
+			diffInt = 3;
+		}else if(difficulty.equals("Medium")) {
+			diffInt = 2;
+		}else {
+			diffInt = 1;
+		}
+		h = new Hell(diffInt);
 		Layer1CB.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
@@ -100,7 +101,9 @@ public class FxFXMLController {
 				
 				progressChanged = l1.getMaxSoulCap() - choice;
 				
-
+				
+				
+				pb1.setProgress(progressChanged);
 			}
 		});
 		Layer2CB.setItems(FXCollections.observableArrayList(10, 50, 100, 1000));
