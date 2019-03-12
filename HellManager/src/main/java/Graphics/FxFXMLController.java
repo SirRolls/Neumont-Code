@@ -83,12 +83,17 @@ public class FxFXMLController {
 		HelpText.setVisible(false);
 		pb1.setProgress(0.0);
 		Layer1CB.setItems(FXCollections.observableArrayList(10, 50, 100, 1000));
+		if(difficulty != null) {
+			
 		if(difficulty.equals("Easy")) {
 			diffInt = 3;
 		}else if(difficulty.equals("Medium")) {
 			diffInt = 2;
 		}else {
 			diffInt = 1;
+		}
+		}else {
+			diffInt = 3;
 		}
 		h = new Hell(diffInt);
 		Layer1CB.setOnAction(new EventHandler<ActionEvent>() {
