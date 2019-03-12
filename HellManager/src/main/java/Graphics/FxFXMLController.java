@@ -2,6 +2,8 @@ package Graphics;
 
 import java.util.ResourceBundle;
 
+import gameControllers.Hell;
+
 import java.net.URL;
 
 import javafx.collections.FXCollections;
@@ -12,6 +14,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.text.Text;
+import models.Level;
 
 public class FxFXMLController {
 	@FXML
@@ -54,14 +57,27 @@ public class FxFXMLController {
 	private ResourceBundle resources;
     @FXML
     private ChoiceBox<String> Diff;
+    
+    @FXML
+    private String difficulty;
 
 	// Add a public no-args constructor
 	public FxFXMLController() {
 	}
-
+	Hell h = null;
 	@FXML
 	private void initialize() {
+		int diffInt;
 		Diff.setItems(FXCollections.observableArrayList("Easy","Medium","Hard"));
+		difficulty = Diff.getSelectionModel().getSelectedItem();
+		if(difficulty.equals("Easy")) {
+			diffInt = 3;
+		}else if(difficulty.equals("Medium")) {
+			diffInt = 2;
+		}else {
+			diffInt = 1;
+		}
+		h = new Hell(diffInt);
 	}
 
 	@FXML
@@ -79,7 +95,11 @@ public class FxFXMLController {
 			@Override
 			public void handle(ActionEvent event) {
 				float progressChanged;
+				Level l1 = h.levelManager.get(1);
 				int choice = Layer1CB.getSelectionModel().getSelectedItem();
+				
+				progressChanged = l1.getMaxSoulCap() - choice;
+				
 
 			}
 		});
