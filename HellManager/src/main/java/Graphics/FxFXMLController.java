@@ -100,13 +100,20 @@ public class FxFXMLController {
 
 			@Override
 			public void handle(ActionEvent event) {
-				float progressChanged;
+				float progressChanged = 0;
+				
 				Level l1 = h.levelManager.get(1);
 				int choice = Layer1CB.getSelectionModel().getSelectedItem();
 				
-				progressChanged = l1.getMaxSoulCap() - choice;
-				
-				
+				if(choice == 10) {
+				progressChanged = 100 * .001f;
+				}else if(choice == 50) {
+					progressChanged = 100 * .005f;
+				}else if(choice == 100) {
+					progressChanged = 100 *.01f;
+				}else {
+					progressChanged = 100 * .1f;
+				}
 				
 				pb1.setProgress(progressChanged);
 			}
