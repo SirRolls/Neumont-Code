@@ -90,6 +90,8 @@ public class FxFXMLController {
 	public FxFXMLController() {
 	}
 	//TODO why is this null?
+	//because we need a class level instance of Hell but Hell's constructor needs an integer passed in which is handled later
+	
 	Hell h = null;
 	@FXML
 	private void initialize() {
@@ -103,21 +105,21 @@ public class FxFXMLController {
 	public void Start() {
 		int diffInt = 0;
 		HelpText.setVisible(false);
-		pb1.setProgress(0.0);
-		Layer1CB.setItems(FXCollections.observableArrayList(10, 50, 100, 1000));
+//		pb1.setProgress(0.0);
 		if(difficulty != null) {
 			
-		if(difficulty.equals("Easy")) {
-			diffInt = 3;
-		}else if(difficulty.equals("Medium")) {
-			diffInt = 2;
-		}else {
-			diffInt = 1;
-		}
+			if(difficulty.equals("Easy")) {
+				diffInt = 3;
+			}else if(difficulty.equals("Medium")) {
+				diffInt = 2;
+			}else {
+				diffInt = 1;
+			}
 		}else {
 			diffInt = 3;
 		}
 		h = new Hell(diffInt);
+		Layer1CB.setItems(FXCollections.observableArrayList(10, 50, 100, 1000));
 		Layer1CB.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
@@ -128,6 +130,9 @@ public class FxFXMLController {
 				Integer l1max = l1.getMaxSoulCap();
 				Integer l1cur = l1.getCurrentSoulAmount();
 				L1Souls.setText(l1cur.toString() + '/' + l1max.toString());
+				StringBuilder sb = new StringBuilder();
+				sb.append(l1.getMaxSoulCapModifier());
+				L1Mod.setText(sb.toString());
 				if(choice == 10) {
 				progressChanged = 100 * .001f;
 				}else if(choice == 50) {
@@ -138,7 +143,7 @@ public class FxFXMLController {
 					progressChanged = 100 * .1f;
 				}
 				
-				pb2.setProgress(progressChanged);
+				pb1.setProgress(progressChanged);
 			}
 		});
 		Layer2CB.setItems(FXCollections.observableArrayList(10, 50, 100, 1000));
@@ -151,7 +156,7 @@ public class FxFXMLController {
 				Level l2 = h.levelManager.get(2);
 				Integer l2max = l2.getMaxSoulCap();
 				Integer l2cur = l2.getCurrentSoulAmount();
-				L1Souls.setText(l2cur.toString() + '/' + l2max.toString());
+				L2Souls.setText(l2cur.toString() + '/' + l2max.toString());
 				if(choice == 10) {
 				progressChanged = 100 * .001f;
 				}else if(choice == 50) {
@@ -176,7 +181,7 @@ public class FxFXMLController {
 				Level l3 = h.levelManager.get(3);
 				Integer l3max = l3.getMaxSoulCap();
 				Integer l3cur = l3.getCurrentSoulAmount();
-				L1Souls.setText(l3cur.toString() + '/' + l3max.toString());
+				L3Souls.setText(l3cur.toString() + '/' + l3max.toString());
 				if(choice == 10) {
 				progressChanged = 100 * .001f;
 				}else if(choice == 50) {
@@ -201,7 +206,7 @@ public class FxFXMLController {
 				Level l4 = h.levelManager.get(4);
 				Integer l4max = l4.getMaxSoulCap();
 				Integer l4cur = l4.getCurrentSoulAmount();
-				L1Souls.setText(l4cur.toString() + '/' + l4max.toString());
+				L4Souls.setText(l4cur.toString() + '/' + l4max.toString());
 				if(choice == 10) {
 				progressChanged = 100 * .001f;
 				}else if(choice == 50) {
@@ -226,7 +231,7 @@ public class FxFXMLController {
 				Level l5 = h.levelManager.get(5);
 				Integer l5max = l5.getMaxSoulCap();
 				Integer l5cur = l5.getCurrentSoulAmount();
-				L1Souls.setText(l5cur.toString() + '/' + l5max.toString());
+				L5Souls.setText(l5cur.toString() + '/' + l5max.toString());
 				if(choice == 10) {
 				progressChanged = 100 * .001f;
 				}else if(choice == 50) {
@@ -248,10 +253,10 @@ public class FxFXMLController {
 			public void handle(ActionEvent event) {
 				int choice = Layer6CB.getSelectionModel().getSelectedItem();
 				float progressChanged = 0;
-				Level l6 = h.levelManager.get(1);
+				Level l6 = h.levelManager.get(6);
 				Integer l6max = l6.getMaxSoulCap();
 				Integer l6cur = l6.getCurrentSoulAmount();
-				L1Souls.setText(l6cur.toString() + '/' + l6max.toString());
+				L6Souls.setText(l6cur.toString() + '/' + l6max.toString());
 				if(choice == 10) {
 				progressChanged = 100 * .001f;
 				}else if(choice == 50) {
@@ -276,7 +281,7 @@ public class FxFXMLController {
 				Level l7 = h.levelManager.get(7);
 				Integer l7max = l7.getMaxSoulCap();
 				Integer l7cur = l7.getCurrentSoulAmount();
-				L1Souls.setText(l7cur.toString() + '/' + l7max.toString());
+				L7Souls.setText(l7cur.toString() + '/' + l7max.toString());
 				if(choice == 10) {
 				progressChanged = 100 * .001f;
 				}else if(choice == 50) {
