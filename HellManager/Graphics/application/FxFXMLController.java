@@ -191,6 +191,7 @@ for(int i = 0; i < h.powerUpArray.length; i ++) {
 				StringBuilder sn = new StringBuilder();
 				currAmSoul -= choice;
 				sn.append(currAmSoul);
+				h.setCurrentAmountOfSouls(currAmSoul);
 				CurrentAmountOfSouls.setText(sn.toString());
 			}
 		});
@@ -213,6 +214,7 @@ for(int i = 0; i < h.powerUpArray.length; i ++) {
 				StringBuilder sn = new StringBuilder();
 				currAmSoul -= choice;
 				sn.append(currAmSoul);
+				h.setCurrentAmountOfSouls(currAmSoul);
 				CurrentAmountOfSouls.setText(sn.toString());
 			}
 		}
@@ -237,6 +239,7 @@ for(int i = 0; i < h.powerUpArray.length; i ++) {
 				StringBuilder sn = new StringBuilder();
 				currAmSoul -= choice;
 				sn.append(currAmSoul);
+				h.setCurrentAmountOfSouls(currAmSoul);
 				CurrentAmountOfSouls.setText(sn.toString());
 			}
 		}
@@ -260,6 +263,7 @@ for(int i = 0; i < h.powerUpArray.length; i ++) {
 				StringBuilder sn = new StringBuilder();
 				currAmSoul -= choice;
 				sn.append(currAmSoul);
+				h.setCurrentAmountOfSouls(currAmSoul);
 				CurrentAmountOfSouls.setText(sn.toString());
 			}
 		}
@@ -283,6 +287,7 @@ for(int i = 0; i < h.powerUpArray.length; i ++) {
 				StringBuilder sn = new StringBuilder();
 				currAmSoul -= choice;
 				sn.append(currAmSoul);
+				h.setCurrentAmountOfSouls(currAmSoul);
 				CurrentAmountOfSouls.setText(sn.toString());
 			}
 		}
@@ -306,6 +311,7 @@ for(int i = 0; i < h.powerUpArray.length; i ++) {
 				StringBuilder sn = new StringBuilder();
 				currAmSoul -= choice;
 				sn.append(currAmSoul);
+				h.setCurrentAmountOfSouls(currAmSoul);
 				CurrentAmountOfSouls.setText(sn.toString());
 			}
 		}
@@ -329,6 +335,7 @@ for(int i = 0; i < h.powerUpArray.length; i ++) {
 				StringBuilder sn = new StringBuilder();
 				currAmSoul -= choice;
 				sn.append(currAmSoul);
+				h.setCurrentAmountOfSouls(currAmSoul);
 				CurrentAmountOfSouls.setText(sn.toString());
 			}
 		}
