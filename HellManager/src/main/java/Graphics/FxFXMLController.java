@@ -15,6 +15,34 @@ import models.Level;
 
 public class FxFXMLController {
 	@FXML
+	private Text L1Souls;
+	@FXML
+	private Text L2Souls;
+	@FXML
+	private Text L3Souls;
+	@FXML
+	private Text L4Souls;
+	@FXML
+	private Text L5Souls;
+	@FXML
+	private Text L6Souls;
+	@FXML
+	private Text L7Souls;
+	@FXML
+	private Text L1Mod;
+	@FXML
+	private Text L2Mod;
+	@FXML
+	private Text L3Mod;
+	@FXML
+	private Text L4Mod;
+	@FXML
+	private Text L5Mod;
+	@FXML
+	private Text L6Mod;
+	@FXML
+	private Text L7Mod;
+	@FXML
 	private Text HelpText;
 	@FXML
 	private URL location;

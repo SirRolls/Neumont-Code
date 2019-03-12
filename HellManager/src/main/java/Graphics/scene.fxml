@@ -59,8 +59,8 @@
                 <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="14.0" style="&#10;" text="Souls" textAlignment="CENTER" textFill="$x2" wrapText="false" />
                         <Text fx:id="HelpText" LayoutY="200.0" layoutX="230.0" strokeType="OUTSIDE" strokeWidth="0.0" text="With incoming souls select &#10;a level to store the soul,&#10; each level gives a &#10;passive modifier that IS &#10;stackable. &#10;Fill all levels of Hell before &#10;time runs out. Click File&gt;New Game to start." />
                         <ProgressBar fx:id="pb1" layoutX="95.0" layoutY="423.0" prefWidth="200.0" progress="0.0" />
-                        <Text layoutX="95.0" layoutY="465.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Max" />
-                        <Text layoutX="262.0" layoutY="465.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Min" />
+                        <Text fx:id="MaxSouls" layoutX="95.0" layoutY="465.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Max" />
+                        <Text fx:id="MinSouls" layoutX="262.0" layoutY="465.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Min" />
                         <ChoiceBox fx:id="Diff" layoutX="125.0" layoutY="367.0" prefWidth="150.0" />
               </children>
             </AnchorPane>
