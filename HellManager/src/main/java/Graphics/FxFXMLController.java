@@ -98,10 +98,6 @@ public class FxFXMLController {
 		
 	}
 
-	@FXML
-	public void Layer1ButtonPressed() {
-
-	}
 
 	@FXML
 	public void Start() {
