@@ -123,10 +123,11 @@ public class FxFXMLController {
 			@Override
 			public void handle(ActionEvent event) {
 				float progressChanged = 0;
-				
 				Level l1 = h.levelManager.get(1);
 				int choice = Layer1CB.getSelectionModel().getSelectedItem();
-				
+				Integer l1max = l1.getMaxSoulCap();
+				Integer l1cur = l1.getCurrentSoulAmount();
+				L1Souls.setText(l1cur.toString() + '/' + l1max.toString());
 				if(choice == 10) {
 				progressChanged = 100 * .001f;
 				}else if(choice == 50) {
@@ -146,10 +147,24 @@ public class FxFXMLController {
 			@Override
 			public void handle(ActionEvent event) {
 				int choice = Layer2CB.getSelectionModel().getSelectedItem();
-
+				float progressChanged = 0;
+				Level l2 = h.levelManager.get(2);
+				Integer l2max = l2.getMaxSoulCap();
+				Integer l2cur = l2.getCurrentSoulAmount();
+				L1Souls.setText(l2cur.toString() + '/' + l2max.toString());
+				if(choice == 10) {
+				progressChanged = 100 * .001f;
+				}else if(choice == 50) {
+					progressChanged = 100 * .005f;
+				}else if(choice == 100) {
+					progressChanged = 100 *.01f;
+				}else {
+					progressChanged = 100 * .1f;
+				}
+				
+				pb2.setProgress(progressChanged);
 			}
 		}
-
 		);
 		Layer3CB.setItems(FXCollections.observableArrayList(10, 50, 100, 1000));
 		Layer3CB.setOnAction(new EventHandler<ActionEvent>() {
@@ -157,10 +172,24 @@ public class FxFXMLController {
 			@Override
 			public void handle(ActionEvent event) {
 				int choice = Layer3CB.getSelectionModel().getSelectedItem();
-
+				float progressChanged = 0;
+				Level l3 = h.levelManager.get(3);
+				Integer l3max = l3.getMaxSoulCap();
+				Integer l3cur = l3.getCurrentSoulAmount();
+				L1Souls.setText(l3cur.toString() + '/' + l3max.toString());
+				if(choice == 10) {
+				progressChanged = 100 * .001f;
+				}else if(choice == 50) {
+					progressChanged = 100 * .005f;
+				}else if(choice == 100) {
+					progressChanged = 100 *.01f;
+				}else {
+					progressChanged = 100 * .1f;
+				}
+				
+				pb3.setProgress(progressChanged);
 			}
 		}
-
 		);
 		Layer4CB.setItems(FXCollections.observableArrayList(10, 50, 100, 1000));
 		Layer4CB.setOnAction(new EventHandler<ActionEvent>() {
@@ -168,10 +197,24 @@ public class FxFXMLController {
 			@Override
 			public void handle(ActionEvent event) {
 				int choice = Layer4CB.getSelectionModel().getSelectedItem();
-
+				float progressChanged = 0;
+				Level l4 = h.levelManager.get(4);
+				Integer l4max = l4.getMaxSoulCap();
+				Integer l4cur = l4.getCurrentSoulAmount();
+				L1Souls.setText(l4cur.toString() + '/' + l4max.toString());
+				if(choice == 10) {
+				progressChanged = 100 * .001f;
+				}else if(choice == 50) {
+					progressChanged = 100 * .005f;
+				}else if(choice == 100) {
+					progressChanged = 100 *.01f;
+				}else {
+					progressChanged = 100 * .1f;
+				}
+				
+				pb4.setProgress(progressChanged);
 			}
 		}
-
 		);
 		Layer5CB.setItems(FXCollections.observableArrayList(10, 50, 100, 1000));
 		Layer5CB.setOnAction(new EventHandler<ActionEvent>() {
@@ -179,10 +222,24 @@ public class FxFXMLController {
 			@Override
 			public void handle(ActionEvent event) {
 				int choice = Layer5CB.getSelectionModel().getSelectedItem();
-
+				float progressChanged = 0;
+				Level l5 = h.levelManager.get(5);
+				Integer l5max = l5.getMaxSoulCap();
+				Integer l5cur = l5.getCurrentSoulAmount();
+				L1Souls.setText(l5cur.toString() + '/' + l5max.toString());
+				if(choice == 10) {
+				progressChanged = 100 * .001f;
+				}else if(choice == 50) {
+					progressChanged = 100 * .005f;
+				}else if(choice == 100) {
+					progressChanged = 100 *.01f;
+				}else {
+					progressChanged = 100 * .1f;
+				}
+				
+				pb5.setProgress(progressChanged);
 			}
 		}
-
 		);
 		Layer6CB.setItems(FXCollections.observableArrayList(10, 50, 100, 1000));
 		Layer6CB.setOnAction(new EventHandler<ActionEvent>() {
@@ -190,10 +247,24 @@ public class FxFXMLController {
 			@Override
 			public void handle(ActionEvent event) {
 				int choice = Layer6CB.getSelectionModel().getSelectedItem();
-
+				float progressChanged = 0;
+				Level l6 = h.levelManager.get(1);
+				Integer l6max = l6.getMaxSoulCap();
+				Integer l6cur = l6.getCurrentSoulAmount();
+				L1Souls.setText(l6cur.toString() + '/' + l6max.toString());
+				if(choice == 10) {
+				progressChanged = 100 * .001f;
+				}else if(choice == 50) {
+					progressChanged = 100 * .005f;
+				}else if(choice == 100) {
+					progressChanged = 100 *.01f;
+				}else {
+					progressChanged = 100 * .1f;
+				}
+				
+				pb3.setProgress(progressChanged);
 			}
 		}
-
 		);
 		Layer7CB.setItems(FXCollections.observableArrayList(10, 50, 100, 1000));
 		Layer7CB.setOnAction(new EventHandler<ActionEvent>() {
@@ -201,12 +272,25 @@ public class FxFXMLController {
 			@Override
 			public void handle(ActionEvent event) {
 				int choice = Layer7CB.getSelectionModel().getSelectedItem();
-
+				float progressChanged = 0;
+				Level l7 = h.levelManager.get(7);
+				Integer l7max = l7.getMaxSoulCap();
+				Integer l7cur = l7.getCurrentSoulAmount();
+				L1Souls.setText(l7cur.toString() + '/' + l7max.toString());
+				if(choice == 10) {
+				progressChanged = 100 * .001f;
+				}else if(choice == 50) {
+					progressChanged = 100 * .005f;
+				}else if(choice == 100) {
+					progressChanged = 100 *.01f;
+				}else {
+					progressChanged = 100 * .1f;
+				}
+				
+				pb3.setProgress(progressChanged);
 			}
 		}
-
-		);
-	}
+	);}
 	
 	
 
