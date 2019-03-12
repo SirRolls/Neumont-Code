@@ -177,6 +177,7 @@ for(int i = 0; i < h.powerUpArray.length; i ++) {
 			@Override
 			public void handle(ActionEvent event) {
 				Level l1 = h.levelManager.get(1);
+				int currAmSoul = h.getCurrentAmountOfSouls();
 				int choice = Layer1CB.getSelectionModel().getSelectedItem();
 				l1.setCurrentSoulAmount(choice + l1.getCurrentSoulAmount()); 
 				Integer l1max = l1.getMaxSoulCap();
@@ -186,6 +187,11 @@ for(int i = 0; i < h.powerUpArray.length; i ++) {
 				
 				sb.append(l1.getMaxSoulCapModifier()+"%");
 				L1Mod.setText(sb.toString());
+				
+				StringBuilder sn = new StringBuilder();
+				currAmSoul -= choice;
+				sn.append(currAmSoul);
+				CurrentAmountOfSouls.setText(sn.toString());
 			}
 		});
 		Layer2CB.setItems(FXCollections.observableArrayList(10, 50, 100, 1000));
@@ -194,6 +200,7 @@ for(int i = 0; i < h.powerUpArray.length; i ++) {
 			@Override
 			public void handle(ActionEvent event) {
 				int choice = Layer2CB.getSelectionModel().getSelectedItem();
+				int currAmSoul = h.getCurrentAmountOfSouls();
 				Level l2 = h.levelManager.get(2);
 				l2.setCurrentSoulAmount(choice + l2.getCurrentSoulAmount()); 
 				Integer l2max = l2.getMaxSoulCap();
@@ -203,6 +210,10 @@ for(int i = 0; i < h.powerUpArray.length; i ++) {
 				sb.append(l2.getMaxSoulCapModifier()+"%");
 				L2Mod.setText(sb.toString());
 				
+				StringBuilder sn = new StringBuilder();
+				currAmSoul -= choice;
+				sn.append(currAmSoul);
+				CurrentAmountOfSouls.setText(sn.toString());
 			}
 		}
 		);
@@ -212,6 +223,7 @@ for(int i = 0; i < h.powerUpArray.length; i ++) {
 			@Override
 			public void handle(ActionEvent event) {
 				int choice = Layer3CB.getSelectionModel().getSelectedItem();
+				int currAmSoul = h.getCurrentAmountOfSouls();
 				Level l3 = h.levelManager.get(3);
 				l3.setCurrentSoulAmount(choice + l3.getCurrentSoulAmount()); 
 				Integer l3max = l3.getMaxSoulCap();
@@ -221,6 +233,11 @@ for(int i = 0; i < h.powerUpArray.length; i ++) {
 				sb.append(l3.getMaxSoulCapModifier()+"%");
 				L3Mod.setText(sb.toString());
 				
+				
+				StringBuilder sn = new StringBuilder();
+				currAmSoul -= choice;
+				sn.append(currAmSoul);
+				CurrentAmountOfSouls.setText(sn.toString());
 			}
 		}
 		);
@@ -231,6 +248,7 @@ for(int i = 0; i < h.powerUpArray.length; i ++) {
 			public void handle(ActionEvent event) {
 				int choice = Layer4CB.getSelectionModel().getSelectedItem();
 				Level l4 = h.levelManager.get(4);
+				int currAmSoul = h.getCurrentAmountOfSouls();
 				l4.setCurrentSoulAmount(choice + l4.getCurrentSoulAmount()); 
 				Integer l4max = l4.getMaxSoulCap();
 				Integer l4cur = l4.getCurrentSoulAmount();
@@ -239,7 +257,10 @@ for(int i = 0; i < h.powerUpArray.length; i ++) {
 				sb.append(l4.getMaxSoulCapModifier()+"%");
 				L4Mod.setText(sb.toString());
 				
-				
+				StringBuilder sn = new StringBuilder();
+				currAmSoul -= choice;
+				sn.append(currAmSoul);
+				CurrentAmountOfSouls.setText(sn.toString());
 			}
 		}
 		);
@@ -250,6 +271,7 @@ for(int i = 0; i < h.powerUpArray.length; i ++) {
 			public void handle(ActionEvent event) {
 				int choice = Layer5CB.getSelectionModel().getSelectedItem();
 				Level l5 = h.levelManager.get(5);
+				int currAmSoul = h.getCurrentAmountOfSouls();
 				l5.setCurrentSoulAmount(choice + l5.getCurrentSoulAmount()); 
 				Integer l5max = l5.getMaxSoulCap();
 				Integer l5cur = l5.getCurrentSoulAmount();
@@ -257,6 +279,11 @@ for(int i = 0; i < h.powerUpArray.length; i ++) {
 				StringBuilder sb = new StringBuilder();
 				sb.append(l5.getMaxSoulCapModifier()+"%");
 				L5Mod.setText(sb.toString());
+				
+				StringBuilder sn = new StringBuilder();
+				currAmSoul -= choice;
+				sn.append(currAmSoul);
+				CurrentAmountOfSouls.setText(sn.toString());
 			}
 		}
 		);
@@ -266,6 +293,7 @@ for(int i = 0; i < h.powerUpArray.length; i ++) {
 			@Override
 			public void handle(ActionEvent event) {
 				int choice = Layer6CB.getSelectionModel().getSelectedItem();
+				int currAmSoul = h.getCurrentAmountOfSouls();
 				Level l6 = h.levelManager.get(6);
 				l6.setCurrentSoulAmount(choice + l6.getCurrentSoulAmount()); 
 				Integer l6max = l6.getMaxSoulCap();
@@ -274,6 +302,11 @@ for(int i = 0; i < h.powerUpArray.length; i ++) {
 				StringBuilder sb = new StringBuilder();
 				sb.append(l6.getMaxSoulCapModifier()+"%");
 				L6Mod.setText(sb.toString());
+				
+				StringBuilder sn = new StringBuilder();
+				currAmSoul -= choice;
+				sn.append(currAmSoul);
+				CurrentAmountOfSouls.setText(sn.toString());
 			}
 		}
 		);
@@ -283,6 +316,7 @@ for(int i = 0; i < h.powerUpArray.length; i ++) {
 			@Override
 			public void handle(ActionEvent event) {
 				int choice = Layer7CB.getSelectionModel().getSelectedItem();
+				int currAmSoul = h.getCurrentAmountOfSouls();
 				Level l7 = h.levelManager.get(7);
 				l7.setCurrentSoulAmount(choice + l7.getCurrentSoulAmount()); 
 				Integer l7max = l7.getMaxSoulCap();
@@ -291,6 +325,11 @@ for(int i = 0; i < h.powerUpArray.length; i ++) {
 				StringBuilder sb = new StringBuilder();
 				sb.append(l7.getMaxSoulCapModifier()+"%");
 				L7Mod.setText(sb.toString());
+				
+				StringBuilder sn = new StringBuilder();
+				currAmSoul -= choice;
+				sn.append(currAmSoul);
+				CurrentAmountOfSouls.setText(sn.toString());
 			}
 		}
 	);
@@ -300,6 +339,57 @@ for(int i = 0; i < h.powerUpArray.length; i ++) {
 			@Override
 			public void handle(ActionEvent arg0) {
 				
+				int currAmSouls = h.getCurrentAmountOfSouls() - h.powerUpArray[0].getSoulFee();
+				if(currAmSouls > 0) {
+					StringBuilder sb = new StringBuilder();
+					sb.append(currAmSouls);
+					CurrentAmountOfSouls.setText(sb.toString());
+				}
+				
+			}
+			
+		});
+		Horse2.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent arg0) {
+				
+				int currAmSouls = h.getCurrentAmountOfSouls() - h.powerUpArray[1].getSoulFee();
+				if(currAmSouls > 0) {
+					StringBuilder sb = new StringBuilder();
+					sb.append(currAmSouls);
+					CurrentAmountOfSouls.setText(sb.toString());
+				}
+				
+			}
+			
+		});
+		Horse3.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent arg0) {
+				
+				int currAmSouls = h.getCurrentAmountOfSouls() - h.powerUpArray[2].getSoulFee();
+				if(currAmSouls > 0) {
+					StringBuilder sb = new StringBuilder();
+					sb.append(currAmSouls);
+					CurrentAmountOfSouls.setText(sb.toString());
+				}
+				
+			}
+			
+		});
+		Horse4.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent arg0) {
+				
+				int currAmSouls = h.getCurrentAmountOfSouls() - h.powerUpArray[3].getSoulFee();
+				if(currAmSouls > 0) {
+					StringBuilder sb = new StringBuilder();
+					sb.append(currAmSouls);
+					CurrentAmountOfSouls.setText(sb.toString());
+				}
 				
 			}
 			
