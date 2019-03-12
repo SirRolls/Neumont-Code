@@ -14,5 +14,6 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="lib.jar"/>
 	<classpathentry kind="lib" path="CrawfordS_ConsoleIOLibrary.jar"/>
+	<classpathentry kind="lib" path="Graphics/scene.fxml"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
