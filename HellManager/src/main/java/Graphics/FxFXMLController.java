@@ -46,24 +46,25 @@ public class FxFXMLController {
 	private Text HelpText;
 	@FXML
 	private URL location;
+	//pb0 is the main pb, in the center
 	@FXML
-	private ProgressBar pb1 = new ProgressBar(1);
+	private ProgressBar pb0;
+	@FXML
+	private ProgressBar pb1;
 	@FXML                   
-	private ProgressBar pb2 = new ProgressBar(1);
+	private ProgressBar pb2;
 	@FXML                   
-	private ProgressBar pb3 = new ProgressBar(1);
+	private ProgressBar pb3;
 	@FXML                   
-	private ProgressBar pb4 = new ProgressBar(1);
+	private ProgressBar pb4;
 	@FXML                   
-	private ProgressBar pb5 = new ProgressBar(1);
+	private ProgressBar pb5;
 	@FXML                   
-	private ProgressBar pb6 = new ProgressBar(1);
+	private ProgressBar pb6;
 	@FXML                   
-	private ProgressBar pb7 = new ProgressBar(1);
+	private ProgressBar pb7;
 	@FXML                   
-	private ProgressBar pb8 = new ProgressBar(1);
-	@FXML                   
-	private ProgressBar pb9 = new ProgressBar(1);
+	private ProgressBar pb8;
 	@FXML                 
 	private ChoiceBox<Integer> Layer1CB;
 	@FXML
@@ -89,9 +90,6 @@ public class FxFXMLController {
 	// Add a public no-args constructor
 	public FxFXMLController() {
 	}
-	//TODO why is this null?
-	//because we need a class level instance of Hell but Hell's constructor needs an integer passed in which is handled later
-	
 	Hell h = null;
 	@FXML
 	private void initialize() {
@@ -105,7 +103,6 @@ public class FxFXMLController {
 	public void Start() {
 		int diffInt = 0;
 		HelpText.setVisible(false);
-//		pb1.setProgress(0.0);
 		if(difficulty != null) {
 			
 			if(difficulty.equals("Easy")) {
@@ -127,6 +124,7 @@ public class FxFXMLController {
 				float progressChanged = 0;
 				Level l1 = h.levelManager.get(1);
 				int choice = Layer1CB.getSelectionModel().getSelectedItem();
+				l1.setCurrentSoulAmount(choice + l1.getCurrentSoulAmount()); 
 				Integer l1max = l1.getMaxSoulCap();
 				Integer l1cur = l1.getCurrentSoulAmount();
 				L1Souls.setText(l1cur.toString() + '/' + l1max.toString());
@@ -154,9 +152,13 @@ public class FxFXMLController {
 				int choice = Layer2CB.getSelectionModel().getSelectedItem();
 				float progressChanged = 0;
 				Level l2 = h.levelManager.get(2);
+				l2.setCurrentSoulAmount(choice + l2.getCurrentSoulAmount()); 
 				Integer l2max = l2.getMaxSoulCap();
 				Integer l2cur = l2.getCurrentSoulAmount();
 				L2Souls.setText(l2cur.toString() + '/' + l2max.toString());
+				StringBuilder sb = new StringBuilder();
+				sb.append(l2.getMaxSoulCapModifier());
+				L2Mod.setText(sb.toString());
 				if(choice == 10) {
 				progressChanged = 100 * .001f;
 				}else if(choice == 50) {
@@ -179,9 +181,13 @@ public class FxFXMLController {
 				int choice = Layer3CB.getSelectionModel().getSelectedItem();
 				float progressChanged = 0;
 				Level l3 = h.levelManager.get(3);
+				l3.setCurrentSoulAmount(choice + l3.getCurrentSoulAmount()); 
 				Integer l3max = l3.getMaxSoulCap();
 				Integer l3cur = l3.getCurrentSoulAmount();
 				L3Souls.setText(l3cur.toString() + '/' + l3max.toString());
+				StringBuilder sb = new StringBuilder();
+				sb.append(l3.getMaxSoulCapModifier());
+				L3Mod.setText(sb.toString());
 				if(choice == 10) {
 				progressChanged = 100 * .001f;
 				}else if(choice == 50) {
@@ -204,9 +210,13 @@ public class FxFXMLController {
 				int choice = Layer4CB.getSelectionModel().getSelectedItem();
 				float progressChanged = 0;
 				Level l4 = h.levelManager.get(4);
+				l4.setCurrentSoulAmount(choice + l4.getCurrentSoulAmount()); 
 				Integer l4max = l4.getMaxSoulCap();
 				Integer l4cur = l4.getCurrentSoulAmount();
 				L4Souls.setText(l4cur.toString() + '/' + l4max.toString());
+				StringBuilder sb = new StringBuilder();
+				sb.append(l4.getMaxSoulCapModifier());
+				L4Mod.setText(sb.toString());
 				if(choice == 10) {
 				progressChanged = 100 * .001f;
 				}else if(choice == 50) {
@@ -229,9 +239,13 @@ public class FxFXMLController {
 				int choice = Layer5CB.getSelectionModel().getSelectedItem();
 				float progressChanged = 0;
 				Level l5 = h.levelManager.get(5);
+				l5.setCurrentSoulAmount(choice + l5.getCurrentSoulAmount()); 
 				Integer l5max = l5.getMaxSoulCap();
 				Integer l5cur = l5.getCurrentSoulAmount();
 				L5Souls.setText(l5cur.toString() + '/' + l5max.toString());
+				StringBuilder sb = new StringBuilder();
+				sb.append(l5.getMaxSoulCapModifier());
+				L5Mod.setText(sb.toString());
 				if(choice == 10) {
 				progressChanged = 100 * .001f;
 				}else if(choice == 50) {
@@ -254,9 +268,13 @@ public class FxFXMLController {
 				int choice = Layer6CB.getSelectionModel().getSelectedItem();
 				float progressChanged = 0;
 				Level l6 = h.levelManager.get(6);
+				l6.setCurrentSoulAmount(choice + l6.getCurrentSoulAmount()); 
 				Integer l6max = l6.getMaxSoulCap();
 				Integer l6cur = l6.getCurrentSoulAmount();
 				L6Souls.setText(l6cur.toString() + '/' + l6max.toString());
+				StringBuilder sb = new StringBuilder();
+				sb.append(l6.getMaxSoulCapModifier());
+				L6Mod.setText(sb.toString());
 				if(choice == 10) {
 				progressChanged = 100 * .001f;
 				}else if(choice == 50) {
@@ -267,7 +285,7 @@ public class FxFXMLController {
 					progressChanged = 100 * .1f;
 				}
 				
-				pb3.setProgress(progressChanged);
+				pb6.setProgress(progressChanged);
 			}
 		}
 		);
@@ -279,9 +297,13 @@ public class FxFXMLController {
 				int choice = Layer7CB.getSelectionModel().getSelectedItem();
 				float progressChanged = 0;
 				Level l7 = h.levelManager.get(7);
+				l7.setCurrentSoulAmount(choice + l7.getCurrentSoulAmount()); 
 				Integer l7max = l7.getMaxSoulCap();
 				Integer l7cur = l7.getCurrentSoulAmount();
 				L7Souls.setText(l7cur.toString() + '/' + l7max.toString());
+				StringBuilder sb = new StringBuilder();
+				sb.append(l7.getMaxSoulCapModifier());
+				L7Mod.setText(sb.toString());
 				if(choice == 10) {
 				progressChanged = 100 * .001f;
 				}else if(choice == 50) {
@@ -292,7 +314,7 @@ public class FxFXMLController {
 					progressChanged = 100 * .1f;
 				}
 				
-				pb3.setProgress(progressChanged);
+				pb7.setProgress(progressChanged);
 			}
 		}
 	);}

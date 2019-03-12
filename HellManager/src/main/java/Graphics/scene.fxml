@@ -82,9 +82,9 @@
                   <Text fx:id="L2Mod" layoutX="45.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="modifier" />
                   <Text fx:id="L3Souls" layoutY="198.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CurrentSoulAmount/MaxAmount" wrappingWidth="111.22119140625" />
                   <Text fx:id="L3Mod" layoutX="45.0" layoutY="241.0" strokeType="OUTSIDE" strokeWidth="0.0" text="modifier" />
-                  <Text fx:id="L4Souls" layoutX="7.0" layoutY="339.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CurrentSoulAmount/MaxAmount" wrappingWidth="130.22119140625" />
+                  <Text fx:id="L5Souls" layoutX="7.0" layoutY="339.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CurrentSoulAmount/MaxAmount" wrappingWidth="130.22119140625" />
                   <Text fx:id="L4Mod" layoutX="53.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="modifier" />
-                  <Text fx:id="L5Souls" layoutX="7.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CurrentSoulAmount/MaxAmount" wrappingWidth="130.22119140625" />
+                  <Text fx:id="L4Souls" layoutX="7.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CurrentSoulAmount/MaxAmount" wrappingWidth="130.22119140625" />
                   <Text fx:id="L5Mod" layoutX="45.0" layoutY="382.0" strokeType="OUTSIDE" strokeWidth="0.0" text="modifier" />
                   <Text fx:id="L6Souls" layoutX="7.0" layoutY="408.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CurrentSoulAmount/MaxAmount" wrappingWidth="150.0" />
                   <Text fx:id="L6Mod" layoutX="45.0" layoutY="451.0" strokeType="OUTSIDE" strokeWidth="0.0" text="modifier" />
@@ -95,12 +95,12 @@
                         <Insets />
                      </opaqueInsets>
                   </ChoiceBox>
-                  <ChoiceBox fx:id="Layer2CB" layoutX="165.0" layoutY="466.0" prefWidth="150.0" />
-                  <ChoiceBox fx:id="Layer3CB" layoutX="165.0" layoutY="403.0" prefWidth="150.0" AnchorPane.bottomAnchor="86.0" AnchorPane.leftAnchor="165.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="403.0" />
-                  <ChoiceBox fx:id="Layer4CB" layoutX="165.0" layoutY="333.0" prefWidth="150.0" />
-                  <ChoiceBox fx:id="Layer5CB" layoutX="165.0" layoutY="257.0" prefWidth="150.0" />
-                  <ChoiceBox fx:id="Layer6CB" layoutX="165.0" layoutY="192.0" prefWidth="150.0" />
-                  <ChoiceBox fx:id="Layer7CB" layoutX="165.0" layoutY="116.0" prefWidth="150.0" />
+                  <ChoiceBox fx:id="Layer7CB" layoutX="165.0" layoutY="466.0" prefWidth="150.0" />
+                  <ChoiceBox fx:id="Layer6CB" layoutX="165.0" layoutY="403.0" prefWidth="150.0" AnchorPane.bottomAnchor="86.0" AnchorPane.leftAnchor="165.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="403.0" />
+                  <ChoiceBox fx:id="Layer5CB" layoutX="165.0" layoutY="333.0" prefWidth="150.0" />
+                  <ChoiceBox fx:id="Layer4CB" layoutX="165.0" layoutY="257.0" prefWidth="150.0" />
+                  <ChoiceBox fx:id="Layer3CB" layoutX="165.0" layoutY="192.0" prefWidth="150.0" />
+                  <ChoiceBox fx:id="Layer2CB" layoutX="165.0" layoutY="116.0" prefWidth="150.0" />
           </children>
         </AnchorPane>
       </items>
