@@ -89,6 +89,7 @@ public class FxFXMLController {
 	// Add a public no-args constructor
 	public FxFXMLController() {
 	}
+	//TODO why is this null?
 	Hell h = null;
 	@FXML
 	private void initialize() {

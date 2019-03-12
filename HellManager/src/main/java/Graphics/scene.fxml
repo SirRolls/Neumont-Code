@@ -76,20 +76,20 @@
                   <ProgressBar fx:id="pb7" layoutX="117.0" layoutY="365.0" prefWidth="200.0" progress="0.0" />
                   <ProgressBar fx:id="pb8" layoutX="117.0" layoutY="434.0" prefWidth="200.0" progress="0.0" />
                   <ProgressBar fx:id="pb9" layoutX="117.0" layoutY="497.0" prefWidth="200.0" progress="0.0" />
-                  <Text layoutX="14.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CurrentSoulAmount/MaxAmount" wrappingWidth="111.22119140625" />
-                  <Text layoutX="7.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CurrentSoulAmount/MaxAmount" wrappingWidth="130.22119140625" />
-                  <Text layoutY="198.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CurrentSoulAmount/MaxAmount" wrappingWidth="111.22119140625" />
-                  <Text layoutX="7.0" layoutY="339.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CurrentSoulAmount/MaxAmount" wrappingWidth="130.22119140625" />
-                  <Text layoutX="7.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CurrentSoulAmount/MaxAmount" wrappingWidth="130.22119140625" />
-                  <Text layoutX="7.0" layoutY="408.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CurrentSoulAmount/MaxAmount" wrappingWidth="150.0" />
-                  <Text layoutX="7.0" layoutY="471.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CurrentSoulAmount/MaxAmount" wrappingWidth="137.22119140625" />
-                  <Text layoutX="45.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="modifier" />
-                  <Text layoutX="45.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="modifier" />
-                  <Text layoutX="45.0" layoutY="241.0" strokeType="OUTSIDE" strokeWidth="0.0" text="modifier" />
-                  <Text layoutX="53.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="modifier" />
-                  <Text layoutX="45.0" layoutY="382.0" strokeType="OUTSIDE" strokeWidth="0.0" text="modifier" />
-                  <Text layoutX="45.0" layoutY="451.0" strokeType="OUTSIDE" strokeWidth="0.0" text="modifier" />
-                  <Text layoutX="45.0" layoutY="514.0" strokeType="OUTSIDE" strokeWidth="0.0" text="modifier" />
+                  <Text fx:id="L1Souls" layoutX="14.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CurrentSoulAmount/MaxAmount" wrappingWidth="111.22119140625" />
+                  <Text fx:id="L2Souls" layoutX="7.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CurrentSoulAmount/MaxAmount" wrappingWidth="130.22119140625" />
+                  <Text fx:id="L3Souls" layoutY="198.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CurrentSoulAmount/MaxAmount" wrappingWidth="111.22119140625" />
+                  <Text fx:id="L4Souls" layoutX="7.0" layoutY="339.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CurrentSoulAmount/MaxAmount" wrappingWidth="130.22119140625" />
+                  <Text fx:id="L5Souls" layoutX="7.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CurrentSoulAmount/MaxAmount" wrappingWidth="130.22119140625" />
+                  <Text fx:id="L6Souls" layoutX="7.0" layoutY="408.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CurrentSoulAmount/MaxAmount" wrappingWidth="150.0" />
+                  <Text fx:id="L7Souls" layoutX="7.0" layoutY="471.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CurrentSoulAmount/MaxAmount" wrappingWidth="137.22119140625" />
+                  <Text fx:id="L1Mod" layoutX="45.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="modifier" />
+                  <Text fx:id="L2Mod" layoutX="45.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="modifier" />
+                  <Text fx:id="L3Mod" layoutX="45.0" layoutY="241.0" strokeType="OUTSIDE" strokeWidth="0.0" text="modifier" />
+                  <Text fx:id="L4Mod" layoutX="53.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="modifier" />
+                  <Text fx:id="L5Mod" layoutX="45.0" layoutY="382.0" strokeType="OUTSIDE" strokeWidth="0.0" text="modifier" />
+                  <Text fx:id="L6Mod" layoutX="45.0" layoutY="451.0" strokeType="OUTSIDE" strokeWidth="0.0" text="modifier" />
+                  <Text fx:id="L7Mod" layoutX="45.0" layoutY="514.0" strokeType="OUTSIDE" strokeWidth="0.0" text="modifier" />
                   <ChoiceBox fx:id="Layer1CB" layoutX="165.0" layoutY="36.0" prefWidth="150.0">
                      <opaqueInsets>
                         <Insets />
