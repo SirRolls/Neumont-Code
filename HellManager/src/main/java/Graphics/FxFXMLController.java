@@ -179,6 +179,7 @@ for(int i = 0; i < h.powerUpArray.length; i ++) {
 				Level l1 = h.levelManager.get(1);
 				int currAmSoul = h.getCurrentAmountOfSouls();
 				int choice = Layer1CB.getSelectionModel().getSelectedItem();
+				if(choice < h.getCurrentAmountOfSouls()) {
 				l1.setCurrentSoulAmount(choice + l1.getCurrentSoulAmount()); 
 				Integer l1max = l1.getMaxSoulCap();
 				Integer l1cur = l1.getCurrentSoulAmount();
@@ -187,12 +188,12 @@ for(int i = 0; i < h.powerUpArray.length; i ++) {
 				
 				sb.append(l1.getMaxSoulCapModifier()+"%");
 				L1Mod.setText(sb.toString());
-				
 				StringBuilder sn = new StringBuilder();
 				currAmSoul -= choice;
 				sn.append(currAmSoul);
 				h.setCurrentAmountOfSouls(currAmSoul);
 				CurrentAmountOfSouls.setText(sn.toString());
+				}
 			}
 		});
 		Layer2CB.setItems(FXCollections.observableArrayList(10, 50, 100, 1000));
@@ -203,6 +204,7 @@ for(int i = 0; i < h.powerUpArray.length; i ++) {
 				int choice = Layer2CB.getSelectionModel().getSelectedItem();
 				int currAmSoul = h.getCurrentAmountOfSouls();
 				Level l2 = h.levelManager.get(2);
+				if(choice < h.getCurrentAmountOfSouls()) {
 				l2.setCurrentSoulAmount(choice + l2.getCurrentSoulAmount()); 
 				Integer l2max = l2.getMaxSoulCap();
 				Integer l2cur = l2.getCurrentSoulAmount();
@@ -216,6 +218,7 @@ for(int i = 0; i < h.powerUpArray.length; i ++) {
 				sn.append(currAmSoul);
 				h.setCurrentAmountOfSouls(currAmSoul);
 				CurrentAmountOfSouls.setText(sn.toString());
+				}
 			}
 		}
 		);
@@ -227,6 +230,7 @@ for(int i = 0; i < h.powerUpArray.length; i ++) {
 				int choice = Layer3CB.getSelectionModel().getSelectedItem();
 				int currAmSoul = h.getCurrentAmountOfSouls();
 				Level l3 = h.levelManager.get(3);
+				if(choice < h.getCurrentAmountOfSouls()) {
 				l3.setCurrentSoulAmount(choice + l3.getCurrentSoulAmount()); 
 				Integer l3max = l3.getMaxSoulCap();
 				Integer l3cur = l3.getCurrentSoulAmount();
@@ -241,6 +245,7 @@ for(int i = 0; i < h.powerUpArray.length; i ++) {
 				sn.append(currAmSoul);
 				h.setCurrentAmountOfSouls(currAmSoul);
 				CurrentAmountOfSouls.setText(sn.toString());
+				}
 			}
 		}
 		);
@@ -252,6 +257,7 @@ for(int i = 0; i < h.powerUpArray.length; i ++) {
 				int choice = Layer4CB.getSelectionModel().getSelectedItem();
 				Level l4 = h.levelManager.get(4);
 				int currAmSoul = h.getCurrentAmountOfSouls();
+				if(choice < h.getCurrentAmountOfSouls()) {
 				l4.setCurrentSoulAmount(choice + l4.getCurrentSoulAmount()); 
 				Integer l4max = l4.getMaxSoulCap();
 				Integer l4cur = l4.getCurrentSoulAmount();
@@ -265,6 +271,7 @@ for(int i = 0; i < h.powerUpArray.length; i ++) {
 				sn.append(currAmSoul);
 				h.setCurrentAmountOfSouls(currAmSoul);
 				CurrentAmountOfSouls.setText(sn.toString());
+				}
 			}
 		}
 		);
@@ -276,6 +283,7 @@ for(int i = 0; i < h.powerUpArray.length; i ++) {
 				int choice = Layer5CB.getSelectionModel().getSelectedItem();
 				Level l5 = h.levelManager.get(5);
 				int currAmSoul = h.getCurrentAmountOfSouls();
+				if(choice < h.getCurrentAmountOfSouls()) {
 				l5.setCurrentSoulAmount(choice + l5.getCurrentSoulAmount()); 
 				Integer l5max = l5.getMaxSoulCap();
 				Integer l5cur = l5.getCurrentSoulAmount();
@@ -289,6 +297,7 @@ for(int i = 0; i < h.powerUpArray.length; i ++) {
 				sn.append(currAmSoul);
 				h.setCurrentAmountOfSouls(currAmSoul);
 				CurrentAmountOfSouls.setText(sn.toString());
+				}
 			}
 		}
 		);
@@ -300,6 +309,7 @@ for(int i = 0; i < h.powerUpArray.length; i ++) {
 				int choice = Layer6CB.getSelectionModel().getSelectedItem();
 				int currAmSoul = h.getCurrentAmountOfSouls();
 				Level l6 = h.levelManager.get(6);
+				if(choice < h.getCurrentAmountOfSouls()) {
 				l6.setCurrentSoulAmount(choice + l6.getCurrentSoulAmount()); 
 				Integer l6max = l6.getMaxSoulCap();
 				Integer l6cur = l6.getCurrentSoulAmount();
@@ -313,6 +323,7 @@ for(int i = 0; i < h.powerUpArray.length; i ++) {
 				sn.append(currAmSoul);
 				h.setCurrentAmountOfSouls(currAmSoul);
 				CurrentAmountOfSouls.setText(sn.toString());
+				}
 			}
 		}
 		);
@@ -324,6 +335,7 @@ for(int i = 0; i < h.powerUpArray.length; i ++) {
 				int choice = Layer7CB.getSelectionModel().getSelectedItem();
 				int currAmSoul = h.getCurrentAmountOfSouls();
 				Level l7 = h.levelManager.get(7);
+				if(choice < h.getCurrentAmountOfSouls()) {
 				l7.setCurrentSoulAmount(choice + l7.getCurrentSoulAmount()); 
 				Integer l7max = l7.getMaxSoulCap();
 				Integer l7cur = l7.getCurrentSoulAmount();
@@ -337,6 +349,7 @@ for(int i = 0; i < h.powerUpArray.length; i ++) {
 				sn.append(currAmSoul);
 				h.setCurrentAmountOfSouls(currAmSoul);
 				CurrentAmountOfSouls.setText(sn.toString());
+				}
 			}
 		}
 	);
