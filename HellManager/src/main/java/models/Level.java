@@ -36,7 +36,11 @@ public class Level {
 	}
 
 	public void setCurrentSoulAmount(int currentSoulAmount) {
+		if(currentSoulAmount < getMaxSoulCap() && currentSoulAmount > 0) {			
 		this.currentSoulAmount = currentSoulAmount;
+		}else {
+			this.currentSoulAmount = getMaxSoulCap();
+		}
 	}
 
 	public boolean isFilled() {

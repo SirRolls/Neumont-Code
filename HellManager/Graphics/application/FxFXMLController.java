@@ -179,7 +179,11 @@ for(int i = 0; i < h.powerUpArray.length; i ++) {
 				Level l1 = h.levelManager.get(1);
 				int currAmSoul = h.getCurrentAmountOfSouls();
 				int choice = Layer1CB.getSelectionModel().getSelectedItem();
-				l1.setCurrentSoulAmount(choice + l1.getCurrentSoulAmount()); 
+				if(choice + l1.getCurrentSoulAmount()  < l1.getMaxSoulCap()) {
+					l1.setCurrentSoulAmount(choice + l1.getCurrentSoulAmount()); 
+				}else {
+					l1.setCurrentSoulAmount(l1.getMaxSoulCap());
+				}
 				Integer l1max = l1.getMaxSoulCap();
 				Integer l1cur = l1.getCurrentSoulAmount();
 				L1Souls.setText(l1cur.toString() + '/' + l1max.toString());
@@ -203,7 +207,11 @@ for(int i = 0; i < h.powerUpArray.length; i ++) {
 				int choice = Layer2CB.getSelectionModel().getSelectedItem();
 				int currAmSoul = h.getCurrentAmountOfSouls();
 				Level l2 = h.levelManager.get(2);
-				l2.setCurrentSoulAmount(choice + l2.getCurrentSoulAmount()); 
+				if(choice + l2.getCurrentSoulAmount()  < l2.getMaxSoulCap()) {
+					l2.setCurrentSoulAmount(choice + l2.getCurrentSoulAmount()); 
+				}else {
+					l2.setCurrentSoulAmount(l1.getMaxSoulCap());
+				}
 				Integer l2max = l2.getMaxSoulCap();
 				Integer l2cur = l2.getCurrentSoulAmount();
 				L2Souls.setText(l2cur.toString() + '/' + l2max.toString());
@@ -227,7 +235,11 @@ for(int i = 0; i < h.powerUpArray.length; i ++) {
 				int choice = Layer3CB.getSelectionModel().getSelectedItem();
 				int currAmSoul = h.getCurrentAmountOfSouls();
 				Level l3 = h.levelManager.get(3);
-				l3.setCurrentSoulAmount(choice + l3.getCurrentSoulAmount()); 
+				if(choice + l3.getCurrentSoulAmount()  < l3.getMaxSoulCap()) {
+					l3.setCurrentSoulAmount(choice + l3.getCurrentSoulAmount()); 
+				}else {
+					l3.setCurrentSoulAmount(l3.getMaxSoulCap());
+				}
 				Integer l3max = l3.getMaxSoulCap();
 				Integer l3cur = l3.getCurrentSoulAmount();
 				L3Souls.setText(l3cur.toString() + '/' + l3max.toString());
@@ -252,7 +264,11 @@ for(int i = 0; i < h.powerUpArray.length; i ++) {
 				int choice = Layer4CB.getSelectionModel().getSelectedItem();
 				Level l4 = h.levelManager.get(4);
 				int currAmSoul = h.getCurrentAmountOfSouls();
-				l4.setCurrentSoulAmount(choice + l4.getCurrentSoulAmount()); 
+				if(choice + l4.getCurrentSoulAmount()  < l4.getMaxSoulCap()) {
+					l4.setCurrentSoulAmount(choice + l4.getCurrentSoulAmount()); 
+				}else {
+					l4.setCurrentSoulAmount(l4.getMaxSoulCap());
+				}
 				Integer l4max = l4.getMaxSoulCap();
 				Integer l4cur = l4.getCurrentSoulAmount();
 				L4Souls.setText(l4cur.toString() + '/' + l4max.toString());
@@ -276,7 +292,11 @@ for(int i = 0; i < h.powerUpArray.length; i ++) {
 				int choice = Layer5CB.getSelectionModel().getSelectedItem();
 				Level l5 = h.levelManager.get(5);
 				int currAmSoul = h.getCurrentAmountOfSouls();
-				l5.setCurrentSoulAmount(choice + l5.getCurrentSoulAmount()); 
+				if(choice + l5.getCurrentSoulAmount()  < l5.getMaxSoulCap()) {
+					l5.setCurrentSoulAmount(choice + l5.getCurrentSoulAmount()); 
+				}else {
+					l5.setCurrentSoulAmount(l5.getMaxSoulCap());
+				} 
 				Integer l5max = l5.getMaxSoulCap();
 				Integer l5cur = l5.getCurrentSoulAmount();
 				L5Souls.setText(l5cur.toString() + '/' + l5max.toString());
@@ -300,7 +320,11 @@ for(int i = 0; i < h.powerUpArray.length; i ++) {
 				int choice = Layer6CB.getSelectionModel().getSelectedItem();
 				int currAmSoul = h.getCurrentAmountOfSouls();
 				Level l6 = h.levelManager.get(6);
-				l6.setCurrentSoulAmount(choice + l6.getCurrentSoulAmount()); 
+				if(choice + l6.getCurrentSoulAmount()  < l6.getMaxSoulCap()) {
+					l6.setCurrentSoulAmount(choice + l6.getCurrentSoulAmount()); 
+				}else {
+					l6.setCurrentSoulAmount(l6.getMaxSoulCap());
+				}
 				Integer l6max = l6.getMaxSoulCap();
 				Integer l6cur = l6.getCurrentSoulAmount();
 				L6Souls.setText(l6cur.toString() + '/' + l6max.toString());
@@ -324,7 +348,11 @@ for(int i = 0; i < h.powerUpArray.length; i ++) {
 				int choice = Layer7CB.getSelectionModel().getSelectedItem();
 				int currAmSoul = h.getCurrentAmountOfSouls();
 				Level l7 = h.levelManager.get(7);
-				l7.setCurrentSoulAmount(choice + l7.getCurrentSoulAmount()); 
+				if(choice + l7.getCurrentSoulAmount()  < l7.getMaxSoulCap()) {
+					l7.setCurrentSoulAmount(choice + l7.getCurrentSoulAmount()); 
+				}else {
+					l7.setCurrentSoulAmount(l7.getMaxSoulCap());
+				}
 				Integer l7max = l7.getMaxSoulCap();
 				Integer l7cur = l7.getCurrentSoulAmount();
 				L7Souls.setText(l7cur.toString() + '/' + l7max.toString());
