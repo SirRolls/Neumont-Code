@@ -8,10 +8,11 @@ import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.ProgressBar;
 import javafx.scene.text.Text;
 import models.Level;
+import models.PowerUp;
 
 public class FxFXMLController {
 	@FXML
@@ -46,25 +47,15 @@ public class FxFXMLController {
 	private Text HelpText;
 	@FXML
 	private URL location;
+	@FXML
+	private Button Horse1;
+	@FXML
+	private Button Horse2;
+	@FXML
+	private Button Horse3;
+	@FXML
+	private Button Horse4;
 	//pb0 is the main pb, in the center
-	@FXML
-	private ProgressBar pb0;
-	@FXML
-	private ProgressBar pb1;
-	@FXML                   
-	private ProgressBar pb2;
-	@FXML                   
-	private ProgressBar pb3;
-	@FXML                   
-	private ProgressBar pb4;
-	@FXML                   
-	private ProgressBar pb5;
-	@FXML                   
-	private ProgressBar pb6;
-	@FXML                   
-	private ProgressBar pb7;
-	@FXML                   
-	private ProgressBar pb8;
 	@FXML                 
 	private ChoiceBox<Integer> Layer1CB;
 	@FXML
@@ -83,9 +74,28 @@ public class FxFXMLController {
 	private ResourceBundle resources;
     @FXML
     private ChoiceBox<String> Diff = new ChoiceBox<String>();
-    
+    @FXML
+    private Text Price1 = new Text();
+    @FXML
+    private Text Price2  = new Text();
+    @FXML
+    private Text Price3  = new Text();
+    @FXML
+    private Text Price4  = new Text(); 
+    @FXML
+    private Text Mod1  = new Text();
+    @FXML
+    private Text Mod2  = new Text();
+    @FXML
+    private Text Mod3  = new Text();
+    @FXML
+    private Text Mod4  = new Text();
     @FXML
     private String difficulty;
+    @FXML
+    private Text CurrentAmountOfSouls = new Text();
+    @FXML
+    private Text MaxSoulsPossible = new Text();
 
 	// Add a public no-args constructor
 	public FxFXMLController() {
@@ -96,11 +106,24 @@ public class FxFXMLController {
 		Diff.setItems(FXCollections.observableArrayList("Easy","Medium","Hard"));
 		difficulty = Diff.getSelectionModel().getSelectedItem();
 		
+		
+	}
+	
+	private String powerUpCost(PowerUp pu) {
+		StringBuilder sb =new StringBuilder();
+		sb.append(pu.getSoulFee());
+		return sb.toString();
+	}
+	private String powerUpMod(PowerUp pu) {
+		StringBuilder sb =new StringBuilder();
+		sb.append(pu.getPowerupmodifier());
+		return sb.toString();
 	}
 
 
 	@FXML
 	public void Start() {
+		
 		int diffInt = 0;
 		HelpText.setVisible(false);
 		if(difficulty != null) {
@@ -116,12 +139,41 @@ public class FxFXMLController {
 			diffInt = 3;
 		}
 		h = new Hell(diffInt);
+		
+		StringBuilder sb = new StringBuilder();
+		sb.append(h.getCurrentAmountOfSouls());
+		CurrentAmountOfSouls.setText(sb.toString());
+		
+		StringBuilder sn = new StringBuilder();
+		sn.append(h.getMaxSoulsPossible());
+		MaxSoulsPossible.setText(sn.toString());
+		
+		
+for(int i = 0; i < h.powerUpArray.length; i ++) {
+			
+			PowerUp [] puArr = h.getPowerUpArray();
+			
+			if(i == 0) {
+				Mod1.setText(powerUpMod(puArr[i]));
+				Price1.setText(powerUpCost(puArr[i]));
+			}else if(i == 1) {
+				Mod2.setText(powerUpMod(puArr[i]));
+				Price2.setText(powerUpCost(puArr[i]));
+			}else if( i == 2) {
+				Mod3.setText(powerUpMod(puArr[i]));
+				Price3.setText(powerUpCost(puArr[i]));
+			}else {
+				Mod4.setText(powerUpMod(puArr[i]));
+				Price4.setText(powerUpCost(puArr[i]));
+			}
+			
+		}
+		
 		Layer1CB.setItems(FXCollections.observableArrayList(10, 50, 100, 1000));
 		Layer1CB.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
 			public void handle(ActionEvent event) {
-				float progressChanged = 0;
 				Level l1 = h.levelManager.get(1);
 				int choice = Layer1CB.getSelectionModel().getSelectedItem();
 				l1.setCurrentSoulAmount(choice + l1.getCurrentSoulAmount()); 
@@ -129,19 +181,9 @@ public class FxFXMLController {
 				Integer l1cur = l1.getCurrentSoulAmount();
 				L1Souls.setText(l1cur.toString() + '/' + l1max.toString());
 				StringBuilder sb = new StringBuilder();
-				sb.append(l1.getMaxSoulCapModifier());
-				L1Mod.setText(sb.toString());
-				if(choice == 10) {
-				progressChanged = 100 * .001f;
-				}else if(choice == 50) {
-					progressChanged = 100 * .005f;
-				}else if(choice == 100) {
-					progressChanged = 100 *.01f;
-				}else {
-					progressChanged = 100 * .1f;
-				}
 				
-				pb1.setProgress(progressChanged);
+				sb.append(l1.getMaxSoulCapModifier()+"%");
+				L1Mod.setText(sb.toString());
 			}
 		});
 		Layer2CB.setItems(FXCollections.observableArrayList(10, 50, 100, 1000));
@@ -150,26 +192,15 @@ public class FxFXMLController {
 			@Override
 			public void handle(ActionEvent event) {
 				int choice = Layer2CB.getSelectionModel().getSelectedItem();
-				float progressChanged = 0;
 				Level l2 = h.levelManager.get(2);
 				l2.setCurrentSoulAmount(choice + l2.getCurrentSoulAmount()); 
 				Integer l2max = l2.getMaxSoulCap();
 				Integer l2cur = l2.getCurrentSoulAmount();
 				L2Souls.setText(l2cur.toString() + '/' + l2max.toString());
 				StringBuilder sb = new StringBuilder();
-				sb.append(l2.getMaxSoulCapModifier());
+				sb.append(l2.getMaxSoulCapModifier()+"%");
 				L2Mod.setText(sb.toString());
-				if(choice == 10) {
-				progressChanged = 100 * .001f;
-				}else if(choice == 50) {
-					progressChanged = 100 * .005f;
-				}else if(choice == 100) {
-					progressChanged = 100 *.01f;
-				}else {
-					progressChanged = 100 * .1f;
-				}
 				
-				pb2.setProgress(progressChanged);
 			}
 		}
 		);
@@ -179,26 +210,15 @@ public class FxFXMLController {
 			@Override
 			public void handle(ActionEvent event) {
 				int choice = Layer3CB.getSelectionModel().getSelectedItem();
-				float progressChanged = 0;
 				Level l3 = h.levelManager.get(3);
 				l3.setCurrentSoulAmount(choice + l3.getCurrentSoulAmount()); 
 				Integer l3max = l3.getMaxSoulCap();
 				Integer l3cur = l3.getCurrentSoulAmount();
 				L3Souls.setText(l3cur.toString() + '/' + l3max.toString());
 				StringBuilder sb = new StringBuilder();
-				sb.append(l3.getMaxSoulCapModifier());
+				sb.append(l3.getMaxSoulCapModifier()+"%");
 				L3Mod.setText(sb.toString());
-				if(choice == 10) {
-				progressChanged = 100 * .001f;
-				}else if(choice == 50) {
-					progressChanged = 100 * .005f;
-				}else if(choice == 100) {
-					progressChanged = 100 *.01f;
-				}else {
-					progressChanged = 100 * .1f;
-				}
 				
-				pb3.setProgress(progressChanged);
 			}
 		}
 		);
@@ -208,26 +228,16 @@ public class FxFXMLController {
 			@Override
 			public void handle(ActionEvent event) {
 				int choice = Layer4CB.getSelectionModel().getSelectedItem();
-				float progressChanged = 0;
 				Level l4 = h.levelManager.get(4);
 				l4.setCurrentSoulAmount(choice + l4.getCurrentSoulAmount()); 
 				Integer l4max = l4.getMaxSoulCap();
 				Integer l4cur = l4.getCurrentSoulAmount();
 				L4Souls.setText(l4cur.toString() + '/' + l4max.toString());
 				StringBuilder sb = new StringBuilder();
-				sb.append(l4.getMaxSoulCapModifier());
+				sb.append(l4.getMaxSoulCapModifier()+"%");
 				L4Mod.setText(sb.toString());
-				if(choice == 10) {
-				progressChanged = 100 * .001f;
-				}else if(choice == 50) {
-					progressChanged = 100 * .005f;
-				}else if(choice == 100) {
-					progressChanged = 100 *.01f;
-				}else {
-					progressChanged = 100 * .1f;
-				}
 				
-				pb4.setProgress(progressChanged);
+				
 			}
 		}
 		);
@@ -237,26 +247,14 @@ public class FxFXMLController {
 			@Override
 			public void handle(ActionEvent event) {
 				int choice = Layer5CB.getSelectionModel().getSelectedItem();
-				float progressChanged = 0;
 				Level l5 = h.levelManager.get(5);
 				l5.setCurrentSoulAmount(choice + l5.getCurrentSoulAmount()); 
 				Integer l5max = l5.getMaxSoulCap();
 				Integer l5cur = l5.getCurrentSoulAmount();
 				L5Souls.setText(l5cur.toString() + '/' + l5max.toString());
 				StringBuilder sb = new StringBuilder();
-				sb.append(l5.getMaxSoulCapModifier());
+				sb.append(l5.getMaxSoulCapModifier()+"%");
 				L5Mod.setText(sb.toString());
-				if(choice == 10) {
-				progressChanged = 100 * .001f;
-				}else if(choice == 50) {
-					progressChanged = 100 * .005f;
-				}else if(choice == 100) {
-					progressChanged = 100 *.01f;
-				}else {
-					progressChanged = 100 * .1f;
-				}
-				
-				pb5.setProgress(progressChanged);
 			}
 		}
 		);
@@ -266,26 +264,14 @@ public class FxFXMLController {
 			@Override
 			public void handle(ActionEvent event) {
 				int choice = Layer6CB.getSelectionModel().getSelectedItem();
-				float progressChanged = 0;
 				Level l6 = h.levelManager.get(6);
 				l6.setCurrentSoulAmount(choice + l6.getCurrentSoulAmount()); 
 				Integer l6max = l6.getMaxSoulCap();
 				Integer l6cur = l6.getCurrentSoulAmount();
 				L6Souls.setText(l6cur.toString() + '/' + l6max.toString());
 				StringBuilder sb = new StringBuilder();
-				sb.append(l6.getMaxSoulCapModifier());
+				sb.append(l6.getMaxSoulCapModifier()+"%");
 				L6Mod.setText(sb.toString());
-				if(choice == 10) {
-				progressChanged = 100 * .001f;
-				}else if(choice == 50) {
-					progressChanged = 100 * .005f;
-				}else if(choice == 100) {
-					progressChanged = 100 *.01f;
-				}else {
-					progressChanged = 100 * .1f;
-				}
-				
-				pb6.setProgress(progressChanged);
 			}
 		}
 		);
@@ -295,29 +281,28 @@ public class FxFXMLController {
 			@Override
 			public void handle(ActionEvent event) {
 				int choice = Layer7CB.getSelectionModel().getSelectedItem();
-				float progressChanged = 0;
 				Level l7 = h.levelManager.get(7);
 				l7.setCurrentSoulAmount(choice + l7.getCurrentSoulAmount()); 
 				Integer l7max = l7.getMaxSoulCap();
 				Integer l7cur = l7.getCurrentSoulAmount();
 				L7Souls.setText(l7cur.toString() + '/' + l7max.toString());
 				StringBuilder sb = new StringBuilder();
-				sb.append(l7.getMaxSoulCapModifier());
+				sb.append(l7.getMaxSoulCapModifier()+"%");
 				L7Mod.setText(sb.toString());
-				if(choice == 10) {
-				progressChanged = 100 * .001f;
-				}else if(choice == 50) {
-					progressChanged = 100 * .005f;
-				}else if(choice == 100) {
-					progressChanged = 100 *.01f;
-				}else {
-					progressChanged = 100 * .1f;
-				}
-				
-				pb7.setProgress(progressChanged);
 			}
 		}
-	);}
+	);
+		
+		Horse1.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent arg0) {
+				
+				
+			}
+			
+		});
+		}
 	
 	
 

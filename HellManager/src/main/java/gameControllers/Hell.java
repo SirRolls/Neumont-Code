@@ -11,7 +11,7 @@ import models.PowerUp;
 public class Hell {
 
 	public HashMap<Integer, Level> levelManager = new HashMap<>();
-	private PowerUp[] powerUpArray = new PowerUp[4];
+	public PowerUp[] powerUpArray = new PowerUp[4];
 	private static float totalSoulModifier;
 	private int currentAmountOfSouls;
 	private int maxSoulsPossible;
