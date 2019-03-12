@@ -143,7 +143,9 @@ public class FxFXMLController {
 		StringBuilder sb = new StringBuilder();
 		sb.append(h.getCurrentAmountOfSouls());
 		CurrentAmountOfSouls.setText(sb.toString());
-		
+		if(true) {
+			
+		}
 		StringBuilder sn = new StringBuilder();
 		sn.append(h.getMaxSoulsPossible());
 		MaxSoulsPossible.setText(sn.toString());
